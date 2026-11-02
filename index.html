@@ -1,0 +1,842 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#174a8b">
+<title>GBASOL - Ruang Belajar Kelas 1–6</title>
+<style>
+:root{
+ --red:#d62839;--red-dark:#a81f2c;--blue:#1e5fd1;--blue-light:#3b82f6;--navy:#0d2a52;
+ --gold:#f5a623;--ink:#18243a;--muted:#65738a;--pale:#eef3ff;--card:#ffffff;
+ --sub-bindo:#0ea5a5;--sub-mtk:#f59e0b;--sub-ppkn:#d62839;--sub-pjok:#16a34a;--sub-seni:#9333ea;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:'Segoe UI',Arial,Helvetica,sans-serif;background:var(--pale);color:var(--ink);min-height:100vh;padding-bottom:80px}
+
+/* ===== Header ===== */
+header{position:relative;overflow:hidden;background:linear-gradient(150deg,#4f8dff,var(--blue) 45%,var(--navy) 100%);color:#fff;padding:18px 18px 0;border-bottom:5px solid var(--red)}
+header::before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 70%);top:-90px;right:-60px}
+header::after{content:"";position:absolute;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);bottom:-10px;left:-50px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:1}
+.brandmark{display:flex;align-items:center;gap:8px}
+.brandmark .cap{font-size:25px;filter:drop-shadow(0 2px 2px rgba(0,0,0,.25))}
+.brandmark .word{font-weight:900;font-size:19px;letter-spacing:.5px}
+.brandmark .word b{color:var(--gold)}
+.hello-chip{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.32);border-radius:99px;padding:6px 12px;font-size:12px;font-weight:700;display:flex;align-items:center;gap:6px;backdrop-filter:blur(2px)}
+header h1{margin:14px 0 2px;font-size:22px;font-weight:900;position:relative;z-index:1}
+header p{margin:0;color:#dbe8ff;font-size:12.5px;position:relative;z-index:1}
+.hero-row{display:flex;align-items:flex-end;justify-content:space-between;position:relative;z-index:1;margin-top:6px}
+.hero-text{padding-bottom:18px;max-width:58%}
+.hero-illust{width:150px;height:118px;flex-shrink:0;transform:translateY(4px)}
+.wave{display:block;width:100%;height:26px;margin-top:4px}
+
+/* ===== Layout ===== */
+main{max-width:640px;margin:0 auto;padding:16px 14px 20px;margin-top:-6px}
+.card{background:var(--card);border:1px solid #e3eaf5;border-radius:18px;padding:16px;margin:0 0 14px;box-shadow:0 10px 24px rgba(23,74,139,.08)}
+h2{font-size:18px;margin:0 0 6px;font-weight:900;color:var(--navy)}
+.meta{color:var(--muted);font-size:13px;margin:2px 0}
+.pill{display:inline-block;padding:5px 10px;border-radius:99px;background:#eaf1fb;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.4px}
+
+/* ===== Menu (home) ===== */
+.menu-hero{position:relative;overflow:hidden;border:0;border-radius:20px;padding:18px;cursor:pointer;color:#fff;text-align:left;width:100%;background:linear-gradient(135deg,#ff7a7a,var(--red-dark) 70%);box-shadow:0 10px 22px rgba(214,40,57,.3);margin-bottom:12px;display:flex;align-items:center;gap:14px}
+.menu-hero .blob{position:absolute;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.14);right:-40px;top:-40px}
+.menu-hero .ic-badge{width:58px;height:58px;border-radius:16px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;position:relative;z-index:1}
+.menu-hero .txt{position:relative;z-index:1;flex:1}
+.menu-hero .title{font-weight:900;font-size:17px;display:block}
+.menu-hero .sub{font-size:12.5px;opacity:.92;display:block;margin-top:2px;font-weight:500}
+.menu-hero .arrow{position:relative;z-index:1;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0}
+
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.menu-tile{border:0;border-radius:18px;padding:16px 14px;text-align:left;cursor:pointer;color:#fff;position:relative;overflow:hidden;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+.menu-tile .blob{position:absolute;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.14);right:-30px;top:-30px}
+.menu-tile .icon{font-size:27px;display:block;margin-bottom:8px;position:relative;z-index:1;width:46px;height:46px;background:rgba(255,255,255,.22);border-radius:13px;display:flex;align-items:center;justify-content:center}
+.menu-tile .title{font-weight:900;font-size:15px;display:block;position:relative;z-index:1}
+.menu-tile .sub{font-size:11.5px;opacity:.9;display:block;margin-top:2px;font-weight:500;position:relative;z-index:1}
+.t-gold{background:linear-gradient(145deg,#ffc266,var(--gold))}
+.t-navy{background:linear-gradient(145deg,#2a5aa8,var(--navy))}
+
+.banner-strip{display:flex;align-items:center;gap:12px;background:linear-gradient(120deg,#eaf1fb,#f6eafd);border-radius:18px;padding:14px 16px;margin-bottom:14px;border:1px solid #e3eaf5}
+.banner-strip .emo{font-size:30px}
+.banner-strip p{margin:0;font-size:13px;color:var(--navy);font-weight:600;line-height:1.4}
+
+/* ===== Class / semester picker ===== */
+.back{display:inline-flex;align-items:center;gap:5px;color:var(--blue);font-weight:800;text-decoration:none;margin:0 0 10px;background:none;border:0;padding:6px 0;width:auto;font-size:14px;cursor:pointer}
+.pick-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pick-card{border:0;border-radius:20px;padding:0;cursor:pointer;color:#fff;text-align:center;font-weight:900;box-shadow:0 10px 20px rgba(0,0,0,.13);overflow:hidden;position:relative}
+.pick-card .pc-top{padding:20px 14px 8px;position:relative;z-index:1}
+.pick-card .emoji{font-size:40px;display:block;margin-bottom:6px;filter:drop-shadow(0 3px 4px rgba(0,0,0,.2))}
+.pick-card .label{font-size:17px;display:block}
+.pick-card .sub{display:block;font-weight:600;font-size:11.5px;opacity:.9;margin-top:3px}
+.pick-card .pc-bottom{height:14px;background:rgba(255,255,255,.16);border-radius:14px 14px 0 0;margin-top:14px}
+.pc-1{background:linear-gradient(165deg,#5fd0ff,var(--blue))}
+.pc-2{background:linear-gradient(165deg,#ff9a6c,var(--red))}.pc-3{background:linear-gradient(165deg,#5ee0a0,#16a34a)}.pc-4{background:linear-gradient(165deg,#c58bff,#7e22ce)}.tabbtn{padding:10px 2px;font-size:12px}
+
+/* ===== Subject grid ===== */
+.subject-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.subject-card{border:0;border-radius:16px;padding:14px;cursor:pointer;text-align:left;color:#fff;box-shadow:0 8px 16px rgba(0,0,0,.1);position:relative;overflow:hidden}
+.subject-card .blob{position:absolute;width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,.14);right:-20px;bottom:-26px}
+.subject-card .emoji{font-size:24px;background:rgba(255,255,255,.24);width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;position:relative;z-index:1}
+.subject-card .name{font-weight:900;font-size:14px;display:block;position:relative;z-index:1}
+.subject-card .count{font-size:11px;opacity:.9;margin-top:2px;position:relative;z-index:1}
+
+/* ===== Quiz ===== */
+.qnum-badge{display:inline-block;background:var(--pale);color:var(--blue);font-weight:900;font-size:11px;letter-spacing:.5px;padding:4px 10px;border-radius:99px;margin-bottom:8px}
+.question{font-size:17px;font-weight:800;line-height:1.5;margin:4px 0 14px;color:var(--navy)}
+.option{display:flex;gap:10px;align-items:flex-start;padding:12px;border:2px solid #e3eaf5;border-radius:13px;margin:8px 0;cursor:pointer;background:#fbfcff;transition:border-color .15s,background .15s}
+.option input{margin-top:3px;accent-color:var(--blue)}
+.option .letter{font-weight:900;color:var(--blue);min-width:16px}
+.option:has(input:checked){border-color:var(--blue);background:#eaf2ff}
+button.primary,button.secondary{display:block;border:0;border-radius:14px;padding:15px;font-weight:900;font-size:15px;width:100%;cursor:pointer;color:#fff}
+button.primary{margin-top:14px;background:linear-gradient(135deg,#ef4458,var(--red-dark));box-shadow:0 8px 16px rgba(214,40,57,.3)}
+button.secondary{margin-top:10px;background:linear-gradient(135deg,#4f8dff,var(--blue));box-shadow:0 8px 16px rgba(23,74,139,.25)}
+button:disabled{opacity:.55;box-shadow:none}
+.feedback{padding:11px 12px;border-radius:12px;margin-top:9px;background:var(--pale);font-size:14px}
+.correct{color:#146c43;font-weight:900}.wrong{color:#b42332;font-weight:900}
+
+/* ===== Result ===== */
+.score-ring{width:120px;height:120px;border-radius:50%;margin:10px auto;display:flex;align-items:center;justify-content:center;background:conic-gradient(var(--gold) calc(var(--pct)*1%),#e8eefb 0);position:relative}
+.score-ring::before{content:"";position:absolute;inset:9px;background:#fff;border-radius:50%}
+.score-ring .val{position:relative;z-index:1;font-size:30px;font-weight:900;color:var(--navy)}
+.confetti{font-size:22px;letter-spacing:10px;text-align:center;margin:0 0 4px}
+
+/* ===== Scores view ===== */
+.tabrow{display:flex;gap:8px;margin-bottom:12px}
+.tabbtn{flex:1;border:2px solid #e3eaf5;background:#fff;border-radius:12px;padding:10px;font-weight:800;color:var(--muted);cursor:pointer;font-size:13px}
+.tabbtn.active{border-color:var(--blue);background:var(--pale);color:var(--blue)}
+.score-row{display:flex;align-items:center;gap:10px;border:1px solid #e3eaf5;border-radius:13px;padding:11px 12px;margin:8px 0;background:#fbfcff}
+.score-row .badge{min-width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:14px}
+.score-row .info b{display:block;font-size:14px}
+.score-row .info span{display:block;font-size:11.5px;color:var(--muted)}
+.empty-state{text-align:center;color:var(--muted);padding:28px 10px;font-size:13.5px}
+.empty-state .big{font-size:40px;display:block;margin-bottom:6px}
+.clearbtn{background:none;border:0;color:var(--red);font-weight:800;font-size:12.5px;cursor:pointer;padding:6px 0;width:auto}
+
+/* ===== Tools view ===== */
+.tool-row{display:flex;align-items:center;gap:12px;border:1px solid #e3eaf5;border-radius:14px;padding:13px;margin:9px 0;background:#fbfcff;cursor:pointer}
+.tool-row .ic{width:42px;height:42px;border-radius:12px;background:var(--pale);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.tool-row .txt b{display:block;font-size:14px;color:var(--navy)}
+.tool-row .txt span{font-size:11.5px;color:var(--muted)}
+
+footer{text-align:center;color:#9aa6ba;font-size:11px;padding:16px 12px 10px}
+.hidden{display:none}
+
+/* ===== Bottom nav ===== */
+nav.bottom{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e3eaf5;display:flex;box-shadow:0 -6px 18px rgba(0,0,0,.06);z-index:10}
+nav.bottom button{background:none;border:0;flex:1;padding:9px 4px 8px;font-size:11px;font-weight:800;color:var(--muted);cursor:pointer}
+nav.bottom button .ic{display:block;font-size:19px;margin-bottom:2px}
+nav.bottom button.active{color:var(--blue)}
+nav.bottom a{background:none;border:0;flex:1;padding:9px 4px 8px;font-size:11px;font-weight:800;color:var(--muted);cursor:pointer;text-decoration:none;text-align:center}
+nav.bottom a .ic{display:block;font-size:19px;margin-bottom:2px}
+
+/* ===== Modals ===== */
+.modal-overlay{position:fixed;inset:0;background:rgba(13,42,82,.55);display:flex;align-items:center;justify-content:center;z-index:50;padding:20px}
+.modal-overlay.hidden{display:none}
+.modal-card{background:#fff;border-radius:20px;padding:22px 20px;max-width:320px;width:100%;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.3)}
+.modal-ic{font-size:36px;margin-bottom:6px}
+.modal-card h3{margin:0 0 6px;font-size:18px;color:var(--navy)}
+.gate-q{font-size:30px;font-weight:900;color:var(--blue);margin:14px 0 10px;letter-spacing:1px}
+.gate-input{width:100%;padding:13px;border-radius:12px;border:2px solid #e3eaf5;font-size:18px;text-align:center;font-weight:800;margin-bottom:6px;box-sizing:border-box}
+.gate-input:focus{outline:none;border-color:var(--blue)}
+.gate-error{color:var(--red);font-size:12.5px;font-weight:700;margin:4px 0}
+
+/* ===== Kalkulator ===== */
+.calc-screen{background:var(--navy);border-radius:16px;padding:22px 18px;text-align:right;margin-bottom:14px;box-shadow:inset 0 2px 8px rgba(0,0,0,.3)}
+.calc-screen .prev{color:#9db3dd;font-size:13px;min-height:16px;word-break:break-all}
+.calc-screen .curr{color:#fff;font-size:34px;font-weight:800;word-break:break-all}
+.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.calc-btn{border:0;border-radius:14px;padding:18px 0;font-size:19px;font-weight:800;cursor:pointer;background:#fff;color:var(--navy);box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.calc-btn:active{transform:scale(.96)}
+.calc-btn.op{background:linear-gradient(135deg,#4f8dff,var(--blue));color:#fff}
+.calc-btn.fn{background:#eaf1fb;color:var(--blue)}
+.calc-btn.eq{background:linear-gradient(135deg,#ef4458,var(--red-dark));color:#fff}
+.calc-btn.wide{grid-column:span 2}
+
+@keyframes tw{50%{opacity:.35}}.tw{animation:tw 2.2s ease-in-out infinite}
+@media(max-width:380px){header h1{font-size:20px}.question{font-size:15.5px}.card{padding:14px}.hero-illust{width:120px;height:96px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="topbar">
+  <div class="brandmark"><span class="cap">🎓</span><span class="word">GBA<b>SOL</b></span></div>
+  <div class="hello-chip">👋 Pelajar Hebat</div>
+ </div>
+ <div class="hero-row">
+  <div class="hero-text">
+   <h1 id="headerTitle">Belajar Seru,<br>Raih Prestasi!</h1>
+   <p id="headerSub">Latihan soal Kurikulum Merdeka • Fase A–C</p>
+  </div>
+  <svg class="hero-illust" viewBox="0 0 160 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <ellipse cx="80" cy="122" rx="64" ry="6" fill="rgba(0,0,0,.14)"/>
+   <g class="tw" fill="#ffd54a"><polygon transform="translate(80,18) scale(1.1)" points="0,-7 2,-2.2 7,-2 3.2,1.2 4.4,6 0,3.3 -4.4,6 -3.2,1.2 -7,-2 -2,-2.2"/><polygon transform="translate(146,34) scale(.8)" points="0,-7 2,-2.2 7,-2 3.2,1.2 4.4,6 0,3.3 -4.4,6 -3.2,1.2 -7,-2 -2,-2.2"/><polygon transform="translate(14,30) scale(.9)" points="0,-7 2,-2.2 7,-2 3.2,1.2 4.4,6 0,3.3 -4.4,6 -3.2,1.2 -7,-2 -2,-2.2"/></g>
+   <!-- anak perempuan -->
+   <g>
+    <rect x="39" y="104" width="7" height="13" rx="3" fill="#ffd9b8"/><rect x="50" y="104" width="7" height="13" rx="3" fill="#ffd9b8"/>
+    <ellipse cx="42" cy="119" rx="6.5" ry="3.5" fill="#2b2b2b"/><ellipse cx="54" cy="119" rx="6.5" ry="3.5" fill="#2b2b2b"/>
+    <path d="M29 107 L34 88 L62 88 L67 107 Z" fill="#d62839"/>
+    <path d="M34 90 Q34 76 48 76 Q62 76 62 90 Z" fill="#fff" stroke="#dfe6f3" stroke-width="1"/>
+    <path d="M36 82 Q22 76 24 62" stroke="#ffd9b8" stroke-width="5.5" stroke-linecap="round"/><circle cx="24" cy="61" r="4" fill="#ffd9b8"/>
+    <path d="M60 82 Q67 90 63 98" stroke="#ffd9b8" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="M42 77 L48 87 L54 77 Z" fill="#d62839"/>
+    <circle cx="26" cy="62" r="0" fill="none"/>
+    <circle cx="28" cy="66" r="8" fill="#2d1b14"/><circle cx="68" cy="66" r="8" fill="#2d1b14"/>
+    <circle cx="48" cy="58" r="19" fill="#ffd9b8"/>
+    <path d="M29 56 Q29 35 48 35 Q67 35 67 56 Q60 45 48 45 Q36 45 29 56 Z" fill="#2d1b14"/>
+    <circle cx="30" cy="54" r="4.5" fill="#d62839"/><circle cx="66" cy="54" r="4.5" fill="#d62839"/>
+    <ellipse cx="41" cy="59" rx="3" ry="3.7" fill="#2a1d16"/><ellipse cx="55" cy="59" rx="3" ry="3.7" fill="#2a1d16"/>
+    <circle cx="42" cy="57.8" r="1.2" fill="#fff"/><circle cx="56" cy="57.8" r="1.2" fill="#fff"/>
+    <circle cx="36" cy="66" r="3.3" fill="#ff8f9c" opacity=".6"/><circle cx="60" cy="66" r="3.3" fill="#ff8f9c" opacity=".6"/>
+    <path d="M42 66 Q48 73 54 66 Z" fill="#b5424f"/>
+   </g>
+   <!-- anak laki-laki -->
+   <g>
+    <rect x="103" y="104" width="7" height="13" rx="3" fill="#f2c19a"/><rect x="114" y="104" width="7" height="13" rx="3" fill="#f2c19a"/>
+    <ellipse cx="106" cy="119" rx="6.5" ry="3.5" fill="#2b2b2b"/><ellipse cx="118" cy="119" rx="6.5" ry="3.5" fill="#2b2b2b"/>
+    <path d="M98 88 L126 88 L128 107 L96 107 Z" fill="#d62839"/>
+    <path d="M98 90 Q98 76 112 76 Q126 76 126 90 Z" fill="#fff" stroke="#dfe6f3" stroke-width="1"/>
+    <path d="M110 78 L114 78 L115.5 91 L112 94 L108.5 91 Z" fill="#174a8b"/>
+    <path d="M125 82 Q138 76 136 62" stroke="#f2c19a" stroke-width="5.5" stroke-linecap="round"/><circle cx="136" cy="61" r="4" fill="#f2c19a"/>
+    <path d="M99 82 Q93 91 99 98" stroke="#f2c19a" stroke-width="5.5" stroke-linecap="round"/>
+    <rect x="88" y="94" width="20" height="14" rx="2" fill="#f5a623" stroke="#c9831a" stroke-width="1.2"/><path d="M98 94 V108" stroke="#c9831a" stroke-width="1.2"/>
+    <circle cx="112" cy="58" r="19" fill="#f2c19a"/>
+    <path d="M93 54 Q92 34 112 34 Q132 34 131 54 Q127 42 112 42 Q97 42 93 54 Z" fill="#1c140f"/>
+    <ellipse cx="105" cy="59" rx="3" ry="3.7" fill="#2a1d16"/><ellipse cx="119" cy="59" rx="3" ry="3.7" fill="#2a1d16"/>
+    <circle cx="106" cy="57.8" r="1.2" fill="#fff"/><circle cx="120" cy="57.8" r="1.2" fill="#fff"/>
+    <circle cx="100" cy="66" r="3.3" fill="#ff8f9c" opacity=".55"/><circle cx="124" cy="66" r="3.3" fill="#ff8f9c" opacity=".55"/>
+    <path d="M106 66 Q112 73 118 66 Z" fill="#b5424f"/>
+   </g>
+   <!-- pensil -->
+   <g transform="translate(128 96) rotate(35)"><rect x="-2.5" y="-14" width="5" height="22" rx="1" fill="#ffc83d"/><polygon points="-2.5,8 2.5,8 0,14" fill="#f6c6a0"/><rect x="-2.5" y="-14" width="5" height="4" fill="#ef4458"/></g>
+  </svg>
+ </div>
+ <svg class="wave" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M0 24 Q100 0 200 14 T400 8 V24 Z" fill="#eef3ff"/></svg>
+</header>
+<main>
+
+<section id="homeView">
+ <section class="card" style="background:linear-gradient(120deg,#fff,#eef3ff)">
+  <span class="pill">✨ BELAJAR SERU</span>
+  <h2 style="margin-top:8px">Selamat datang, Pelajar Hebat!</h2>
+  <p class="meta">Pilih menu di bawah untuk mulai berlatih soal. Semuanya ada dalam satu halaman dan bisa dibuka tanpa internet.</p>
+ </section>
+
+ <button class="menu-hero" onclick="showClassPicker()">
+  <span class="blob"></span>
+  <span class="ic-badge">📖</span>
+  <span class="txt"><span class="title">Bank Soal</span><span class="sub">Latihan berbagai mata pelajaran kelas 1–6</span></span>
+  <span class="arrow">➜</span>
+ </button>
+
+ <div class="menu-grid">
+  <button class="menu-tile t-gold" onclick="openGate(goScores)"><span class="blob"></span><span class="icon">🏆</span><span class="title">Nilai Saya</span><span class="sub">Lihat hasil belajarmu</span></button>
+  <button class="menu-tile t-navy" onclick="openGate(goScores)"><span class="blob"></span><span class="icon">🥇</span><span class="title">Prestasi</span><span class="sub">Semangat meraih bintang!</span></button>
+ </div>
+
+ <div class="banner-strip">
+  <span class="emo">📣</span>
+  <p>Ayo belajar dengan semangat dan jangan lupa menyelesaikan latihan soal setiap hari! 😊</p>
+ </div>
+</section>
+
+<section id="semesterView" class="hidden">
+ <button class="back" onclick="goHome()">← Kembali ke beranda</button>
+ <section class="card"><span class="pill">🎓 PILIH KELAS</span><h2 style="margin-top:8px" id="semesterHeading">Pilih Kelas</h2><p class="meta">Pilih kelas untuk melanjutkan.</p></section>
+ <div class="pick-grid">
+  <button class="pick-card pc-1" onclick="showSemesters(1)"><span class="pc-top"><span class="emoji">🐣</span><span class="label">KELAS 1</span><span class="sub">Semester 1 &amp; 2</span></span><span class="pc-bottom"></span></button>
+  <button class="pick-card pc-2" onclick="showSemesters(2)"><span class="pc-top"><span class="emoji">🦋</span><span class="label">KELAS 2</span><span class="sub">Semester 1 &amp; 2</span></span><span class="pc-bottom"></span></button><button class="pick-card pc-3" onclick="showSemesters(3)"><span class="pc-top"><span class="emoji">🦊</span><span class="label">KELAS 3</span><span class="sub">Semester 1 &amp; 2</span></span><span class="pc-bottom"></span></button><button class="pick-card pc-4" onclick="showSemesters(4)"><span class="pc-top"><span class="emoji">🐼</span><span class="label">KELAS 4</span><span class="sub">Semester 1 &amp; 2</span></span><span class="pc-bottom"></span></button><button class="pick-card pc-1" onclick="showSemesters(5)"><span class="pc-top"><span class="emoji">🚀</span><span class="label">KELAS 5</span><span class="sub">Semester 1 &amp; 2</span></span><span class="pc-bottom"></span></button><button class="pick-card pc-2" onclick="showSemesters(6)"><span class="pc-top"><span class="emoji">🌟</span><span class="label">KELAS 6</span><span class="sub">Semester 1 &amp; 2</span></span><span class="pc-bottom"></span></button>
+ </div>
+</section>
+
+<section id="termView" class="hidden">
+ <button class="back" onclick="showClassPicker()">← Kembali ke kelas</button>
+ <section class="card"><h2 id="termHeading"></h2><p class="meta">Pilih semester untuk melihat mata pelajaran.</p></section>
+ <div class="pick-grid">
+  <button class="pick-card pc-1" onclick="showSubjects(1)"><span class="pc-top"><span class="emoji">🌤️</span><span class="label">SEMESTER 1</span></span><span class="pc-bottom"></span></button>
+  <button class="pick-card pc-2" onclick="showSubjects(2)"><span class="pc-top"><span class="emoji">🌈</span><span class="label">SEMESTER 2</span></span><span class="pc-bottom"></span></button>
+ </div>
+</section>
+
+<section id="subjectView" class="hidden">
+ <button class="back" onclick="showSemesters(currentClass)">← Kembali ke semester</button>
+ <section class="card"><h2 id="subjectHeading">Mata Pelajaran</h2><p class="meta">Pilih mata pelajaran untuk memulai Paket 1.</p></section>
+ <div class="subject-grid" id="subjectGrid"></div>
+</section>
+
+<section id="quizView" class="hidden">
+ <button class="back" onclick="showSubjects(currentSemester)">← Kembali ke mata pelajaran</button>
+ <section class="card"><span class="pill" id="quizSubjectPill">PAKET 1</span><h2 id="quizHeading" style="margin-top:8px"></h2><p class="meta" id="quizMeta"></p><p class="meta">Pilih satu jawaban untuk setiap soal, lalu tekan Periksa Jawaban.</p></section>
+ <form id="quizForm"></form>
+ <button id="submitBtn" class="primary" type="button" onclick="gradeQuiz()">✅ Periksa Jawaban</button>
+ <button class="secondary" type="button" onclick="restartQuiz()">🔁 Ulangi Paket</button>
+ <div id="result"></div>
+</section>
+
+<section id="scoresView" class="hidden">
+ <button class="back" onclick="goHome()">← Kembali ke beranda</button>
+ <section class="card"><span class="pill">🏆 NILAI SAYA</span><h2 style="margin-top:8px">Hasil Belajarmu</h2><p class="meta">Riwayat nilai latihan soal tersimpan di perangkat ini.</p></section>
+ <div class="tabrow">
+  <button class="tabbtn" id="tabK1" onclick="setScoreClass(1)">Kelas 1</button>
+  <button class="tabbtn" id="tabK2" onclick="setScoreClass(2)">Kelas 2</button><button class="tabbtn" id="tabK3" onclick="setScoreClass(3)">Kelas 3</button><button class="tabbtn" id="tabK4" onclick="setScoreClass(4)">Kelas 4</button><button class="tabbtn" id="tabK5" onclick="setScoreClass(5)">Kelas 5</button><button class="tabbtn" id="tabK6" onclick="setScoreClass(6)">Kelas 6</button>
+ </div>
+ <section class="card" id="scoresCard"></section>
+</section>
+
+<section id="toolsView" class="hidden">
+ <button class="back" onclick="goHome()">← Kembali ke beranda</button>
+ <section class="card"><span class="pill">🛠️ TOOLS</span><h2 style="margin-top:8px">Pengaturan &amp; Bantuan</h2><p class="meta">Kelola data latihan dan alat bantu belajar.</p></section>
+ <section class="card" style="padding:8px 14px">
+  <div class="tool-row" onclick="goScores()"><span class="ic">🏆</span><div class="txt"><b>Lihat Nilai Saya</b><span>Riwayat hasil latihan soal</span></div></div>
+  <div class="tool-row" onclick="goCalc()"><span class="ic">🧮</span><div class="txt"><b>Kalkulator</b><span>Tambah, kurang, kali, bagi</span></div></div>
+  <div class="tool-row" onclick="clearAllScores()"><span class="ic">🗑️</span><div class="txt"><b>Hapus Semua Nilai</b><span>Kosongkan riwayat Kelas 1–6</span></div></div>
+ </section>
+</section>
+
+<section id="calcView" class="hidden">
+ <button class="back" onclick="goTools()">← Kembali ke Tools</button>
+ <section class="card"><span class="pill">🧮 KALKULATOR</span><h2 style="margin-top:8px">Kalkulator Sederhana</h2><p class="meta">Tambah, kurang, kali, dan bagi.</p></section>
+ <section class="card">
+  <div class="calc-screen">
+   <div class="prev" id="calcPrev"></div>
+   <div class="curr" id="calcCurr">0</div>
+  </div>
+  <div class="calc-grid">
+   <button class="calc-btn fn" type="button" onclick="calcClear()">C</button>
+   <button class="calc-btn fn" type="button" onclick="calcBackspace()">⌫</button>
+   <button class="calc-btn fn" type="button" onclick="calcPercent()">%</button>
+   <button class="calc-btn op" type="button" onclick="calcOperator('/')">÷</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('7')">7</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('8')">8</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('9')">9</button>
+   <button class="calc-btn op" type="button" onclick="calcOperator('*')">×</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('4')">4</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('5')">5</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('6')">6</button>
+   <button class="calc-btn op" type="button" onclick="calcOperator('-')">−</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('1')">1</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('2')">2</button>
+   <button class="calc-btn" type="button" onclick="calcDigit('3')">3</button>
+   <button class="calc-btn op" type="button" onclick="calcOperator('+')">+</button>
+   <button class="calc-btn wide" type="button" onclick="calcDigit('0')">0</button>
+   <button class="calc-btn" type="button" onclick="calcDot()">.</button>
+   <button class="calc-btn eq" type="button" onclick="calcEquals()">=</button>
+  </div>
+ </section>
+</section>
+
+<section id="infoView" class="hidden">
+ <button class="back" onclick="goHome()">← Kembali ke beranda</button>
+ <section class="card"><span class="pill">📣 PAPAN INFO</span><h2 style="margin-top:8px">Papan Informasi</h2><p class="meta">Info penting, kontak bantuan, dan tentang aplikasi.</p></section>
+ <div class="banner-strip">
+  <span class="emo">📣</span>
+  <p>Ayo belajar dengan semangat dan jangan lupa menyelesaikan latihan soal setiap hari! 😊</p>
+ </div>
+ <section class="card" style="padding:8px 14px">
+  <a class="tool-row" id="infoWA" href="https://whatsapp.com/channel/0029VbDZcia4IBhAPoyqd01g" target="_blank" rel="noopener" style="text-decoration:none;color:inherit"><span class="ic">💬</span><div class="txt"><b>Saluran WhatsApp GBASOL</b><span>Ikuti saluran untuk info &amp; update soal terbaru</span></div></a>
+  <div style="border:1px solid #e3eaf5;border-radius:14px;padding:14px;margin:9px 0;background:#fbfcff">
+   <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span class="ic" style="width:42px;height:42px;border-radius:12px;background:var(--pale);display:flex;align-items:center;justify-content:center;font-size:20px">ℹ️</span><b style="font-size:15px;color:var(--navy)">Tentang GBASOL</b></div>
+   <p class="meta" style="line-height:1.55;margin:0 0 8px"><b>GBASOL</b> adalah singkatan dari <b>Arga Bank Soal</b>, aplikasi latihan soal Kurikulum Merdeka untuk siswa SD kelas 1–6. Bisa dipakai tanpa internet dan nilai latihan tersimpan di perangkat.</p>
+   <p class="meta" style="line-height:1.55;margin:0 0 8px">👨‍💻 Dikembangkan oleh <b>Nabhan Arga Wiratama</b>, seorang pelajar.</p>
+   <span class="pill">v1.0 • Mode Offline</span>
+  </div>
+ </section>
+</section>
+
+</main>
+<footer>POWERED BY @gaaadev</footer>
+
+<nav class="bottom">
+ <button id="navHome" onclick="goHome()"><span class="ic">🏠</span>Home</button>
+ <button id="navInfo" onclick="goInfo()"><span class="ic">📋</span>Papan Info</button>
+ <button id="navTools" onclick="openGate(goTools)"><span class="ic">🛠️</span>Tools</button>
+</nav>
+
+<div class="modal-overlay hidden" id="gateModal">
+ <div class="modal-card">
+  <div class="modal-ic">🔒</div>
+  <h3>Verifikasi Orang Tua</h3>
+  <p class="meta" style="text-align:center">Jawab soal perkalian berikut untuk melanjutkan.</p>
+  <div class="gate-q" id="gateQuestion">6 × 7 = ?</div>
+  <input type="tel" inputmode="numeric" id="gateInput" class="gate-input" placeholder="Jawaban" onkeydown="if(event.key==='Enter')submitGate()">
+  <p class="gate-error hidden" id="gateError">Jawaban belum tepat, coba lagi ya!</p>
+  <button class="primary" type="button" onclick="submitGate()">Lanjutkan</button>
+  <button class="secondary" type="button" onclick="hideModal('gateModal')">Batal</button>
+ </div>
+</div>
+
+<div class="modal-overlay hidden" id="confirmModal">
+ <div class="modal-card">
+  <div class="modal-ic">⚠️</div>
+  <h3>Konfirmasi</h3>
+  <p class="meta" style="text-align:center" id="confirmMsg"></p>
+  <button class="primary" type="button" onclick="confirmYes()">Ya, Hapus</button>
+  <button class="secondary" type="button" onclick="confirmNo()">Batal</button>
+ </div>
+</div>
+
+<div class="modal-overlay hidden" id="alertModal">
+ <div class="modal-card">
+  <div class="modal-ic">✅</div>
+  <h3>Berhasil</h3>
+  <p class="meta" style="text-align:center" id="alertMsg"></p>
+  <button class="primary" type="button" onclick="hideModal('alertModal')">OK</button>
+ </div>
+</div>
+
+<script>
+const questionBank = {"1": {"1": {"seni-budaya": [{"q": "Warna daun pada umumnya adalah …", "o": ["Hijau", "Ungu", "Hitam", "Merah muda"], "a": 0, "e": "Daun umumnya berwarna hijau."}, {"q": "Alat untuk menggambar adalah …", "o": ["Pensil", "Sendok", "Sapu", "Piring"], "a": 0, "e": "Pensil dapat digunakan untuk menggambar."}, {"q": "Bunyi yang teratur dalam lagu disebut …", "o": ["Irama", "Bau", "Warna", "Rasa"], "a": 0, "e": "Irama adalah rangkaian bunyi yang teratur."}, {"q": "Kegiatan menempel potongan kertas menjadi gambar disebut …", "o": ["Kolase", "Berlari", "Menyanyi", "Melompat"], "a": 0, "e": "Kolase dibuat dengan menempelkan bahan."}, {"q": "Alat musik yang dimainkan dengan dipukul adalah …", "o": ["Drum", "Seruling", "Biola", "Gitar"], "a": 0, "e": "Drum dimainkan dengan cara dipukul."}, {"q": "Garis yang melengkung seperti pelangi disebut garis …", "o": ["Lengkung", "Lurus", "Putus-putus", "Tegak"], "a": 0, "e": "Bentuk pelangi menyerupai garis lengkung."}, {"q": "Warna merah dicampur kuning menghasilkan …", "o": ["Oranye", "Hijau", "Biru", "Ungu"], "a": 0, "e": "Campuran merah dan kuning menghasilkan oranye."}, {"q": "Gerak tari dilakukan mengikuti …", "o": ["Irama musik", "Bau bunga", "Rasa makanan", "Warna baju"], "a": 0, "e": "Gerak tari dapat mengikuti irama musik."}, {"q": "Bahan alam untuk membuat karya adalah …", "o": ["Daun kering", "Plastik pabrik saja", "Kabel listrik", "Baterai"], "a": 0, "e": "Daun kering dapat digunakan sebagai bahan karya."}, {"q": "Saat bernyanyi bersama, kita perlu menjaga …", "o": ["Kekompakan", "Keributan", "Jarak sejauh mungkin", "Suara sendiri saja"], "a": 0, "e": "Bernyanyi bersama perlu kekompakan."}], "matematika": [{"q": "3 + 2 = …", "o": ["5", "4", "6", "7"], "a": 0, "e": "Tiga ditambah dua sama dengan lima."}, {"q": "7 − 4 = …", "o": ["3", "2", "4", "5"], "a": 0, "e": "Tujuh dikurangi empat sama dengan tiga."}, {"q": "Bilangan setelah 9 adalah …", "o": ["10", "8", "11", "7"], "a": 0, "e": "Setelah 9 adalah 10."}, {"q": "Bilangan yang lebih besar adalah …", "o": ["8", "5", "3", "6"], "a": 0, "e": "Delapan lebih besar daripada lima, tiga, dan enam."}, {"q": "Bentuk roda biasanya menyerupai …", "o": ["Lingkaran", "Segitiga", "Persegi", "Persegi panjang"], "a": 0, "e": "Roda berbentuk lingkaran."}, {"q": "Jumlah jari pada satu tangan adalah …", "o": ["5", "4", "6", "10"], "a": 0, "e": "Satu tangan memiliki lima jari."}, {"q": "Angka 12 dibaca …", "o": ["Dua belas", "Dua puluh", "Sepuluh dua", "Sebelas"], "a": 0, "e": "12 dibaca dua belas."}, {"q": "2 + 2 + 1 = …", "o": ["5", "4", "6", "3"], "a": 0, "e": "Dua tambah dua tambah satu sama dengan lima."}, {"q": "Bilangan sebelum 15 adalah …", "o": ["14", "16", "13", "12"], "a": 0, "e": "Sebelum 15 adalah 14."}, {"q": "Benda yang paling panjang adalah …", "o": ["Penggaris 30 cm", "Penghapus 4 cm", "Klip 2 cm", "Kancing 1 cm"], "a": 0, "e": "Penggaris 30 cm paling panjang."}], "pendidikan-pancasila": [{"q": "Dasar negara Indonesia adalah …", "o": ["Pancasila", "Pancasila dan UUD saja", "Garuda", "Bendera"], "a": 0, "e": "Dasar negara Indonesia adalah Pancasila."}, {"q": "Lambang negara Indonesia adalah …", "o": ["Garuda Pancasila", "Harimau", "Elang laut", "Komodo"], "a": 0, "e": "Lambang negara Indonesia adalah Garuda Pancasila."}, {"q": "Saat teman berbicara, kita sebaiknya …", "o": ["Mendengarkan", "Berteriak", "Mengejek", "Pergi"], "a": 0, "e": "Mendengarkan menunjukkan sikap menghargai."}, {"q": "Contoh menjaga kebersihan kelas adalah …", "o": ["Membuang sampah pada tempatnya", "Mencoret meja", "Membuang sampah di lantai", "Merusak kursi"], "a": 0, "e": "Sampah harus dibuang pada tempatnya."}, {"q": "Warna bendera Indonesia adalah …", "o": ["Merah dan putih", "Biru dan putih", "Hijau dan kuning", "Merah dan biru"], "a": 0, "e": "Bendera Indonesia berwarna merah putih."}, {"q": "Jika berbeda pendapat dengan teman, kita harus …", "o": ["Menghargai", "Memaksa", "Marah", "Mengejek"], "a": 0, "e": "Perbedaan pendapat harus dihargai."}, {"q": "Berdoa sebelum belajar merupakan contoh perilaku sesuai sila ke …", "o": ["Satu", "Dua", "Tiga", "Empat"], "a": 0, "e": "Sila pertama mengajarkan kepercayaan kepada Tuhan."}, {"q": "Contoh hidup rukun di rumah adalah …", "o": ["Membantu saudara", "Bertengkar", "Mengambil barang", "Mengejek"], "a": 0, "e": "Membantu saudara menjaga kerukunan."}, {"q": "Ketika mendapat giliran piket, kita sebaiknya …", "o": ["Melaksanakan tugas", "Menghindar", "Menyuruh teman saja", "Pulang diam-diam"], "a": 0, "e": "Piket adalah tanggung jawab bersama."}, {"q": "Saat upacara bendera, kita harus …", "o": ["Tertib dan khidmat", "Bermain", "Berbicara keras", "Berlari-lari"], "a": 0, "e": "Upacara dilakukan dengan tertib."}], "bahasa-indonesia": [{"q": "Huruf pertama pada kata “apel” adalah …", "o": ["A", "P", "E", "L"], "a": 0, "e": "Kata apel diawali huruf A."}, {"q": "Kata yang memiliki huruf awal sama dengan “bola” adalah …", "o": ["Buku", "Meja", "Sapu", "Topi"], "a": 0, "e": "Bola dan buku sama-sama diawali huruf B."}, {"q": "Manakah yang termasuk nama hewan?", "o": ["Kucing", "Kursi", "Pensil", "Piring"], "a": 0, "e": "Kucing adalah nama hewan."}, {"q": "Kalimat yang diakhiri tanda titik adalah …", "o": ["Ibu memasak.", "Siapa namamu?", "Wah, bagus!", "Ayo bermain"], "a": 0, "e": "Kalimat berita diakhiri tanda titik."}, {"q": "Lawan kata “besar” adalah …", "o": ["Kecil", "Tinggi", "Panjang", "Lebar"], "a": 0, "e": "Lawan kata besar adalah kecil."}, {"q": "Kata yang tepat untuk melengkapi “Saya ... nasi” adalah …", "o": ["makan", "tidur", "lari", "mandi"], "a": 0, "e": "Kata makan sesuai dengan nasi."}, {"q": "Huruf vokal pada pilihan berikut adalah …", "o": ["I", "B", "K", "T"], "a": 0, "e": "I termasuk huruf vokal."}, {"q": "Kata “buku” terdiri atas … suku kata.", "o": ["Dua", "Satu", "Tiga", "Empat"], "a": 0, "e": "Buku terdiri dari bu-ku."}, {"q": "Ucapan yang tepat saat bertemu pagi hari adalah …", "o": ["Selamat pagi", "Selamat malam", "Selamat tidur", "Sampai jumpa"], "a": 0, "e": "Pagi hari kita dapat mengucapkan selamat pagi."}, {"q": "Tanda baca untuk kalimat tanya adalah …", "o": ["?", ".", "!", ","], "a": 0, "e": "Kalimat tanya diakhiri tanda tanya."}], "pjok": [{"q": "Sebelum berolahraga, kita melakukan …", "o": ["Pemanasan", "Langsung tidur", "Makan banyak", "Duduk diam"], "a": 0, "e": "Pemanasan menyiapkan tubuh untuk bergerak."}, {"q": "Gerakan berjalan menggunakan …", "o": ["Kaki", "Telinga", "Siku", "Rambut"], "a": 0, "e": "Berjalan dilakukan dengan kaki."}, {"q": "Agar tubuh sehat, kita perlu makan …", "o": ["Makanan bergizi", "Permen saja", "Keripik saja", "Es saja"], "a": 0, "e": "Makanan bergizi membantu menjaga kesehatan."}, {"q": "Setelah bermain, tangan sebaiknya …", "o": ["Dicuci", "Dibiarkan kotor", "Diusap ke baju", "Disembunyikan"], "a": 0, "e": "Mencuci tangan menjaga kebersihan."}, {"q": "Gerakan melompat dilakukan dengan tolakan …", "o": ["Kaki", "Kepala", "Tangan saja", "Punggung"], "a": 0, "e": "Melompat menggunakan tolakan kaki."}, {"q": "Saat bermain bersama, kita harus …", "o": ["Mengikuti aturan", "Curang", "Mendorong teman", "Bertengkar"], "a": 0, "e": "Aturan membuat permainan aman dan tertib."}, {"q": "Alat untuk bermain sepak bola adalah …", "o": ["Bola", "Raket", "Tongkat", "Pita"], "a": 0, "e": "Sepak bola menggunakan bola."}, {"q": "Bagian tubuh untuk melihat adalah …", "o": ["Mata", "Hidung", "Telinga", "Lutut"], "a": 0, "e": "Mata digunakan untuk melihat."}, {"q": "Minum air putih membantu mencegah …", "o": ["Kekurangan cairan", "Rasa lapar selamanya", "Kantuk setiap saat", "Luka"], "a": 0, "e": "Air putih membantu memenuhi kebutuhan cairan tubuh."}, {"q": "Saat berlari, kita sebaiknya memilih tempat yang …", "o": ["Aman dan lapang", "Licin", "Penuh kendaraan", "Banyak pecahan kaca"], "a": 0, "e": "Tempat aman mengurangi risiko cedera."}]}, "2": {"seni-budaya": [{"q": "Warna primer terdiri dari …", "o": ["Merah, kuning, biru", "Hijau, ungu, oranye", "Hitam, putih, abu-abu", "Cokelat, merah muda, hijau"], "a": 0, "e": "Warna primer yang umum diajarkan adalah merah, kuning, dan biru."}, {"q": "Karya seni tiga dimensi memiliki …", "o": ["Panjang, lebar, dan tinggi", "Panjang saja", "Warna saja", "Garis saja"], "a": 0, "e": "Karya tiga dimensi memiliki volume."}, {"q": "Alat musik yang ditiup adalah …", "o": ["Seruling", "Gendang", "Drum", "Marakas"], "a": 0, "e": "Seruling dimainkan dengan cara ditiup."}, {"q": "Bahan lunak untuk membentuk patung sederhana adalah …", "o": ["Plastisin", "Batu besar", "Kaca", "Besi"], "a": 0, "e": "Plastisin mudah dibentuk dengan tangan."}, {"q": "Pola berulang dalam hiasan disebut …", "o": ["Motif", "Nada", "Gerak", "Dialog"], "a": 0, "e": "Motif dapat disusun berulang menjadi pola."}, {"q": "Cepat lambatnya lagu disebut …", "o": ["Tempo", "Warna", "Tekstur", "Bentuk"], "a": 0, "e": "Tempo menunjukkan cepat atau lambat lagu."}, {"q": "Gerak tari menirukan kupu-kupu dapat menggunakan gerakan …", "o": ["Mengepakkan tangan", "Menggali tanah", "Mendorong meja", "Menutup telinga"], "a": 0, "e": "Tangan dapat digerakkan seperti sayap kupu-kupu."}, {"q": "Karya dari lipatan kertas disebut …", "o": ["Origami", "Kolase kain", "Patung batu", "Anyaman bambu"], "a": 0, "e": "Origami adalah seni melipat kertas."}, {"q": "Permukaan benda yang terasa kasar atau halus disebut …", "o": ["Tekstur", "Nada", "Tempo", "Irama"], "a": 0, "e": "Tekstur berkaitan dengan sifat permukaan."}, {"q": "Saat melihat karya teman, kita sebaiknya …", "o": ["Menghargai", "Merusak", "Mengejek", "Menyembunyikan"], "a": 0, "e": "Menghargai karya orang lain menunjukkan sikap apresiatif."}], "matematika": [{"q": "15 + 4 = …", "o": ["19", "18", "20", "17"], "a": 0, "e": "Lima belas ditambah empat sama dengan sembilan belas."}, {"q": "18 − 6 = …", "o": ["12", "11", "13", "14"], "a": 0, "e": "Delapan belas dikurangi enam sama dengan dua belas."}, {"q": "Bilangan 24 terdiri dari …", "o": ["2 puluhan dan 4 satuan", "4 puluhan dan 2 satuan", "2 satuan dan 4 ratusan", "24 puluhan"], "a": 0, "e": "Nilai tempat 24 adalah 2 puluhan dan 4 satuan."}, {"q": "Urutan dari yang terkecil adalah …", "o": ["12, 15, 18", "18, 12, 15", "15, 18, 12", "18, 15, 12"], "a": 0, "e": "12 lebih kecil dari 15, lalu 18."}, {"q": "5 + 5 + 5 = …", "o": ["15", "10", "20", "12"], "a": 0, "e": "Lima ditambah lima ditambah lima sama dengan lima belas."}, {"q": "Setengah dari 10 adalah …", "o": ["5", "2", "10", "8"], "a": 0, "e": "Sepuluh dibagi dua sama dengan lima."}, {"q": "Pukul 07.00 biasanya disebut …", "o": ["Pukul tujuh pagi", "Pukul tujuh malam", "Pukul dua belas", "Pukul enam sore"], "a": 0, "e": "07.00 menunjukkan pukul tujuh pagi."}, {"q": "Bangun datar yang memiliki 4 sisi sama panjang adalah …", "o": ["Persegi", "Segitiga", "Lingkaran", "Oval"], "a": 0, "e": "Persegi memiliki empat sisi sama panjang."}, {"q": "30 + 10 = …", "o": ["40", "20", "31", "50"], "a": 0, "e": "Tiga puluh ditambah sepuluh sama dengan empat puluh."}, {"q": "Uang Rp2.000 ditambah Rp1.000 menjadi …", "o": ["Rp3.000", "Rp1.000", "Rp2.000", "Rp4.000"], "a": 0, "e": "Dua ribu ditambah seribu sama dengan tiga ribu."}], "pendidikan-pancasila": [{"q": "Bunyi sila ketiga Pancasila adalah …", "o": ["Persatuan Indonesia", "Ketuhanan Yang Maha Esa", "Kemanusiaan yang adil dan beradab", "Keadilan sosial bagi seluruh rakyat Indonesia"], "a": 0, "e": "Sila ketiga berbunyi Persatuan Indonesia."}, {"q": "Contoh sikap adil di kelas adalah …", "o": ["Membagi tugas secara seimbang", "Memilih teman tertentu saja", "Mengambil semua alat", "Tidak mau bergiliran"], "a": 0, "e": "Adil berarti memberikan hak secara layak."}, {"q": "Musyawarah dilakukan untuk …", "o": ["Mencapai kesepakatan", "Mencari musuh", "Memaksakan kehendak", "Membuat keributan"], "a": 0, "e": "Musyawarah membantu mencapai keputusan bersama."}, {"q": "Aturan dibuat agar kehidupan menjadi …", "o": ["Tertib", "Kacau", "Berbahaya", "Tidak nyaman"], "a": 0, "e": "Aturan membantu menjaga ketertiban."}, {"q": "Contoh hak anak di rumah adalah …", "o": ["Mendapat kasih sayang", "Merusak barang", "Membentak orang tua", "Mengabaikan tugas"], "a": 0, "e": "Anak berhak mendapat kasih sayang."}, {"q": "Contoh kewajiban siswa adalah …", "o": ["Belajar dengan sungguh-sungguh", "Mengganggu teman", "Merusak buku", "Datang sesuka hati"], "a": 0, "e": "Belajar merupakan kewajiban siswa."}, {"q": "Sikap terhadap teman yang berbeda agama adalah …", "o": ["Menghormati", "Menjauhi", "Mengejek", "Memaksa"], "a": 0, "e": "Kita harus menghormati perbedaan agama."}, {"q": "Gotong royong berarti bekerja …", "o": ["Bersama-sama", "Sendirian saja", "Saling menyalahkan", "Tanpa tujuan"], "a": 0, "e": "Gotong royong adalah bekerja bersama."}, {"q": "Jika melakukan kesalahan, sebaiknya kita …", "o": ["Meminta maaf", "Menyalahkan orang lain", "Berbohong", "Melarikan diri"], "a": 0, "e": "Meminta maaf adalah sikap bertanggung jawab."}, {"q": "Contoh menjaga persatuan di sekolah adalah …", "o": ["Bermain bersama tanpa membeda-bedakan", "Memilih teman berdasarkan asal", "Mengejek teman", "Bertengkar"], "a": 0, "e": "Berteman tanpa membeda-bedakan menjaga persatuan."}], "bahasa-indonesia": [{"q": "Kalimat yang menggunakan huruf kapital dengan benar adalah …", "o": ["Nama saya Rani.", "nama saya Rani.", "Nama Saya rani.", "nama Saya rani."], "a": 0, "e": "Awal kalimat dan nama orang memakai huruf kapital."}, {"q": "Sinonim kata “senang” adalah …", "o": ["Gembira", "Sedih", "Marah", "Takut"], "a": 0, "e": "Senang memiliki arti dekat dengan gembira."}, {"q": "Kalimat ajakan yang tepat adalah …", "o": ["Ayo kita membaca!", "Saya sedang makan.", "Di mana rumahmu?", "Buku itu merah."], "a": 0, "e": "Kata ayo digunakan untuk mengajak."}, {"q": "Kata yang tepat untuk melengkapi “Adik ... gigi setiap pagi” adalah …", "o": ["menyikat", "menanam", "menjahit", "menyapu"], "a": 0, "e": "Gigi dibersihkan dengan cara disikat."}, {"q": "Tanda baca di akhir kalimat seru adalah …", "o": ["!", "?", ".", ":"], "a": 0, "e": "Kalimat seru diakhiri tanda seru."}, {"q": "Susunan kata yang benar adalah …", "o": ["Ibu memasak sayur.", "Memasak ibu sayur.", "Sayur ibu memasak.", "Ibu sayur memasak."], "a": 0, "e": "Susunan tersebut membentuk kalimat yang benar."}, {"q": "Lawan kata “rajin” adalah …", "o": ["Malas", "Tekun", "Giat", "Aktif"], "a": 0, "e": "Lawan kata rajin adalah malas."}, {"q": "Kata yang menunjukkan tempat adalah …", "o": ["Sekolah", "Berlari", "Cantik", "Membaca"], "a": 0, "e": "Sekolah merupakan nama tempat."}, {"q": "Saat meminjam barang, kita sebaiknya berkata …", "o": ["Bolehkah saya meminjam?", "Berikan sekarang!", "Itu milikku!", "Pergi sana!"], "a": 0, "e": "Meminta izin menunjukkan sikap santun."}, {"q": "Kalimat tanya yang tepat adalah …", "o": ["Siapa nama gurumu?", "Nama guruku Siti.", "Aku suka membaca.", "Hari ini cerah."], "a": 0, "e": "Kalimat tersebut menanyakan seseorang."}], "pjok": [{"q": "Gerakan menekuk lutut termasuk gerak …", "o": ["Nonlokomotor", "Lokomotor", "Diam total", "Manipulatif"], "a": 0, "e": "Gerak nonlokomotor dilakukan tanpa berpindah tempat."}, {"q": "Contoh gerak lokomotor adalah …", "o": ["Berlari", "Memutar lengan di tempat", "Meliukkan badan", "Mengayun tangan di tempat"], "a": 0, "e": "Berlari memindahkan tubuh dari satu tempat ke tempat lain."}, {"q": "Pendinginan dilakukan setelah …", "o": ["Olahraga", "Bangun tidur saja", "Makan", "Membaca"], "a": 0, "e": "Pendinginan membantu tubuh kembali rileks setelah olahraga."}, {"q": "Sikap tubuh saat duduk yang baik adalah …", "o": ["Tegak", "Membungkuk berlebihan", "Miring terus", "Tiduran di meja"], "a": 0, "e": "Duduk tegak membantu menjaga postur tubuh."}, {"q": "Dalam permainan lempar tangkap, bola dilempar menggunakan …", "o": ["Tangan", "Kaki saja", "Kepala", "Lutut"], "a": 0, "e": "Lempar tangkap menggunakan tangan."}, {"q": "Kebersihan kuku dijaga dengan cara …", "o": ["Memotong kuku secara teratur", "Menggigit kuku", "Membiarkan sangat panjang", "Mengotori kuku"], "a": 0, "e": "Kuku yang bersih membantu mencegah kotoran menumpuk."}, {"q": "Saat teman terjatuh ketika bermain, kita sebaiknya …", "o": ["Menolongnya", "Menertawakan", "Meninggalkannya", "Mendorong lagi"], "a": 0, "e": "Menolong teman adalah sikap peduli."}, {"q": "Gerakan mengayun lengan dapat melatih …", "o": ["Kelenturan", "Pendengaran", "Penglihatan", "Penciuman"], "a": 0, "e": "Mengayun lengan membantu melatih kelenturan bahu."}, {"q": "Makanan sumber energi yang baik adalah …", "o": ["Nasi", "Air sabun", "Kertas", "Plastik"], "a": 0, "e": "Nasi merupakan sumber karbohidrat dan energi."}, {"q": "Saat bersepeda, kita sebaiknya memakai …", "o": ["Helm", "Sandal licin", "Penutup mata", "Sarung tangan oven"], "a": 0, "e": "Helm membantu melindungi kepala."}]}}, "2": {"1": {"seni-budaya": [{"q": "Karya yang dibuat dengan cara menggunting dan menempel disebut …", "o": ["Kolase", "Patung", "Lagu", "Tari"], "a": 0, "e": "Kolase dibuat dengan menempelkan berbagai bahan."}, {"q": "Alat musik yang dipetik adalah …", "o": ["Gitar", "Seruling", "Drum", "Terompet"], "a": 0, "e": "Gitar dimainkan dengan dipetik."}, {"q": "Campuran warna biru dan kuning menghasilkan …", "o": ["Hijau", "Merah", "Ungu", "Oranye"], "a": 0, "e": "Biru dicampur kuning menghasilkan hijau."}, {"q": "Gerak tari dapat menggunakan anggota tubuh berupa …", "o": ["Tangan dan kaki", "Buku dan pensil", "Meja dan kursi", "Kertas dan lem"], "a": 0, "e": "Tangan dan kaki digunakan dalam gerak tari."}, {"q": "Bahan alam untuk membuat kerajinan adalah …", "o": ["Biji-bijian", "Baterai", "Kabel", "Kaca pecah"], "a": 0, "e": "Biji-bijian dapat digunakan sebagai bahan kerajinan."}, {"q": "Bunyi panjang dan pendek dapat membentuk …", "o": ["Pola irama", "Gambar", "Warna", "Tekstur"], "a": 0, "e": "Panjang pendek bunyi membentuk pola irama."}, {"q": "Karya seni yang dapat dilihat dari berbagai sisi disebut …", "o": ["Karya tiga dimensi", "Gambar datar", "Garis lurus", "Sketsa"], "a": 0, "e": "Karya tiga dimensi memiliki bentuk dan volume."}, {"q": "Alat untuk mewarnai gambar adalah …", "o": ["Krayon", "Penggaris saja", "Penghapus", "Stapler"], "a": 0, "e": "Krayon dapat digunakan untuk mewarnai."}, {"q": "Saat tampil menari bersama, kita perlu menjaga …", "o": ["Keselarasan gerak", "Gerak sendiri-sendiri tanpa aturan", "Keributan", "Jarak sejauh mungkin"], "a": 0, "e": "Keselarasan membuat tarian kelompok tampak kompak."}, {"q": "Karya seni perlu dirawat agar …", "o": ["Tetap baik dan tidak mudah rusak", "Cepat hilang", "Kotor", "Robek"], "a": 0, "e": "Merawat karya menjaga kondisinya."}], "matematika": [{"q": "36 + 27 = …", "o": ["63", "53", "62", "73"], "a": 0, "e": "36 ditambah 27 sama dengan 63."}, {"q": "75 − 32 = …", "o": ["43", "42", "53", "47"], "a": 0, "e": "75 dikurangi 32 sama dengan 43."}, {"q": "Bilangan 148 memiliki …", "o": ["1 ratusan, 4 puluhan, 8 satuan", "1 puluhan, 4 ratusan, 8 satuan", "14 ratusan, 8 satuan", "1 satuan, 4 puluhan, 8 ratusan"], "a": 0, "e": "Nilai tempat 148 adalah 1 ratusan, 4 puluhan, dan 8 satuan."}, {"q": "3 × 4 = …", "o": ["12", "7", "9", "16"], "a": 0, "e": "Tiga kelompok berisi empat berjumlah dua belas."}, {"q": "20 : 5 = …", "o": ["4", "5", "10", "15"], "a": 0, "e": "Dua puluh dibagi lima sama dengan empat."}, {"q": "Pecahan yang menunjukkan setengah adalah …", "o": ["1/2", "1/3", "1/4", "2/3"], "a": 0, "e": "Setengah ditulis satu per dua."}, {"q": "Satu jam sama dengan … menit.", "o": ["60", "30", "100", "24"], "a": 0, "e": "Satu jam terdiri dari 60 menit."}, {"q": "Keliling persegi dengan sisi 4 cm adalah …", "o": ["16 cm", "8 cm", "12 cm", "20 cm"], "a": 0, "e": "Keliling persegi adalah 4 × sisi."}, {"q": "Rp5.000 + Rp2.000 = …", "o": ["Rp7.000", "Rp6.000", "Rp8.000", "Rp3.000"], "a": 0, "e": "Lima ribu ditambah dua ribu sama dengan tujuh ribu."}, {"q": "Bilangan genap berikut adalah …", "o": ["26", "15", "31", "43"], "a": 0, "e": "Bilangan genap habis dibagi dua."}], "pendidikan-pancasila": [{"q": "Aturan di rumah perlu dipatuhi oleh …", "o": ["Anggota keluarga", "Ayah saja", "Anak saja", "Tamu saja"], "a": 0, "e": "Aturan rumah berlaku bagi anggota keluarga sesuai perannya."}, {"q": "Keberagaman budaya Indonesia sebaiknya …", "o": ["Dihargai", "Diejek", "Dihilangkan", "Dipertentangkan"], "a": 0, "e": "Keberagaman merupakan kekayaan bangsa."}, {"q": "Contoh kerja sama di sekolah adalah …", "o": ["Membersihkan kelas bersama", "Mengerjakan tugas teman diam-diam", "Membiarkan kelas kotor", "Berebut alat"], "a": 0, "e": "Membersihkan kelas bersama adalah kerja sama."}, {"q": "Keputusan bersama sebaiknya dilaksanakan dengan …", "o": ["Tanggung jawab", "Terpaksa sambil marah", "Mengejek", "Mengabaikan"], "a": 0, "e": "Keputusan bersama perlu dilaksanakan dengan tanggung jawab."}, {"q": "Sila kedua Pancasila dilambangkan dengan …", "o": ["Rantai", "Bintang", "Pohon beringin", "Kepala banteng"], "a": 0, "e": "Rantai merupakan lambang sila kedua."}, {"q": "Contoh sikap menghormati hak orang lain adalah …", "o": ["Meminta izin sebelum memakai barang", "Mengambil barang tanpa izin", "Memotong antrean", "Mengganggu teman"], "a": 0, "e": "Meminta izin berarti menghormati kepemilikan orang lain."}, {"q": "Jika melihat teman kesulitan, kita dapat …", "o": ["Menawarkan bantuan", "Menertawakan", "Mengabaikan", "Menyalahkan"], "a": 0, "e": "Menawarkan bantuan menunjukkan kepedulian."}, {"q": "Contoh identitas diri adalah …", "o": ["Nama dan alamat", "Warna langit", "Jenis awan", "Nama planet"], "a": 0, "e": "Nama dan alamat merupakan bagian dari identitas diri."}, {"q": "Saat antre, kita harus …", "o": ["Menunggu giliran", "Menyerobot", "Mendorong orang", "Memotong barisan"], "a": 0, "e": "Antre berarti menunggu giliran dengan tertib."}, {"q": "Pancasila terdiri atas … sila.", "o": ["Lima", "Empat", "Tiga", "Enam"], "a": 0, "e": "Pancasila memiliki lima sila."}], "bahasa-indonesia": [{"q": "Gagasan utama dalam sebuah cerita dapat diketahui dengan …", "o": ["Membaca dan memahami isi cerita", "Melihat warna sampul saja", "Menghitung huruf judul", "Membaca halaman terakhir saja"], "a": 0, "e": "Memahami isi cerita membantu menemukan gagasan utama."}, {"q": "Kata tanya untuk menanyakan tempat adalah …", "o": ["Di mana", "Siapa", "Kapan", "Mengapa"], "a": 0, "e": "Di mana digunakan untuk menanyakan tempat."}, {"q": "Kalimat perintah yang santun adalah …", "o": ["Tolong rapikan bukumu.", "Rapikan sekarang juga!", "Diam kamu!", "Pergi sana!"], "a": 0, "e": "Kata tolong membuat perintah lebih santun."}, {"q": "Antonim kata “tinggi” adalah …", "o": ["Rendah", "Panjang", "Besar", "Lebar"], "a": 0, "e": "Lawan kata tinggi adalah rendah."}, {"q": "Kata baku yang tepat adalah …", "o": ["Apotek", "Apotik", "Apoték", "Apotick"], "a": 0, "e": "Bentuk baku dalam bahasa Indonesia adalah apotek."}, {"q": "Kalimat yang menyatakan pendapat adalah …", "o": ["Menurutku, buku itu menarik.", "Buku itu ada di meja.", "Hari ini Senin.", "Ibu membeli beras."], "a": 0, "e": "Ungkapan menurutku menunjukkan pendapat."}, {"q": "Tokoh dalam cerita adalah …", "o": ["Pelaku cerita", "Tempat cerita", "Waktu cerita", "Judul cerita"], "a": 0, "e": "Tokoh merupakan pelaku dalam cerita."}, {"q": "Kata hubung untuk menyatakan pilihan adalah …", "o": ["Atau", "Karena", "Tetapi", "Lalu"], "a": 0, "e": "Kata atau menyatakan pilihan."}, {"q": "Kalimat yang tepat menggunakan tanda koma adalah …", "o": ["Ibu membeli apel, jeruk, dan mangga.", "Ibu membeli apel jeruk dan mangga", "Ibu, membeli apel jeruk.", "Ibu membeli, apel jeruk dan mangga."], "a": 0, "e": "Koma memisahkan unsur dalam perincian."}, {"q": "Saat tidak memahami petunjuk, kita sebaiknya …", "o": ["Bertanya dengan sopan", "Menebak tanpa membaca", "Merobek petunjuk", "Menyalahkan teman"], "a": 0, "e": "Bertanya dengan sopan membantu memahami petunjuk."}], "pjok": [{"q": "Gerak berpindah tempat disebut gerak …", "o": ["Lokomotor", "Nonlokomotor", "Diam", "Pasif"], "a": 0, "e": "Gerak lokomotor memindahkan tubuh."}, {"q": "Contoh gerak nonlokomotor adalah …", "o": ["Membungkukkan badan", "Berjalan", "Berlari", "Melompat ke depan"], "a": 0, "e": "Membungkuk dilakukan tanpa berpindah tempat."}, {"q": "Saat bermain di lapangan, kita harus memperhatikan …", "o": ["Keselamatan", "Kecepatan saja", "Kemenangan saja", "Suara penonton"], "a": 0, "e": "Keselamatan harus diutamakan saat bermain."}, {"q": "Makanan yang membantu pertumbuhan tubuh antara lain …", "o": ["Telur dan ikan", "Permen saja", "Minuman bersoda", "Keripik saja"], "a": 0, "e": "Telur dan ikan mengandung protein."}, {"q": "Olahraga teratur membuat tubuh menjadi …", "o": ["Lebih bugar", "Selalu lemah", "Mudah kotor", "Tidak bergerak"], "a": 0, "e": "Aktivitas fisik membantu kebugaran."}, {"q": "Gerakan menendang bola menggunakan …", "o": ["Kaki", "Tangan", "Siku", "Kepala saja"], "a": 0, "e": "Bola ditendang menggunakan kaki."}, {"q": "Kita perlu tidur cukup agar tubuh …", "o": ["Beristirahat", "Selalu lelah", "Tidak tumbuh", "Tidak sehat"], "a": 0, "e": "Tidur membantu pemulihan tubuh."}, {"q": "Sikap awal berdiri tegak dilakukan dengan …", "o": ["Badan tegap dan pandangan ke depan", "Badan membungkuk", "Mata tertutup", "Kaki terus bergerak"], "a": 0, "e": "Berdiri tegak berarti menjaga postur tubuh."}, {"q": "Saat cuaca panas setelah olahraga, kita sebaiknya …", "o": ["Minum air putih", "Tidak minum sama sekali", "Berlari lebih cepat", "Memakai pakaian basah"], "a": 0, "e": "Air putih membantu mengganti cairan tubuh."}, {"q": "Permainan yang menggunakan gerak melempar dan menangkap adalah …", "o": ["Lempar tangkap bola", "Catur", "Membaca buku", "Menggambar"], "a": 0, "e": "Permainan tersebut melatih koordinasi tangan dan mata."}]}, "2": {"seni-budaya": [{"q": "Teknik membuat karya dengan menyusun potongan kecil bahan disebut …", "o": ["Mozaik", "Bernyanyi", "Melompat", "Mengukir suara"], "a": 0, "e": "Mozaik disusun dari potongan-potongan kecil bahan."}, {"q": "Bahan buatan untuk membuat kerajinan contohnya …", "o": ["Kertas warna", "Daun kering", "Batu alam", "Biji jagung"], "a": 0, "e": "Kertas warna merupakan bahan buatan."}, {"q": "Tinggi rendah bunyi disebut …", "o": ["Nada", "Tekstur", "Warna", "Bentuk"], "a": 0, "e": "Nada berkaitan dengan tinggi rendah bunyi."}, {"q": "Alat musik tradisional dari bambu yang dimainkan dengan digoyangkan adalah …", "o": ["Angklung", "Gitar listrik", "Piano", "Biola"], "a": 0, "e": "Angklung dimainkan dengan digoyangkan."}, {"q": "Karya yang dibuat dengan membentuk tanah liat termasuk karya …", "o": ["Tiga dimensi", "Dua dimensi", "Tulisan", "Lagu"], "a": 0, "e": "Bentuk tanah liat memiliki volume."}, {"q": "Garis zig-zag tersusun dari garis …", "o": ["Patah-patah", "Lengkung saja", "Melingkar", "Sejajar saja"], "a": 0, "e": "Garis zig-zag terdiri dari beberapa garis patah."}, {"q": "Saat menyanyikan lagu, kita mengikuti …", "o": ["Irama dan tempo", "Warna gambar", "Bentuk kertas", "Arah angin"], "a": 0, "e": "Irama dan tempo membantu lagu dinyanyikan dengan tepat."}, {"q": "Gerak tari yang kuat dapat menggambarkan …", "o": ["Semangat", "Kantuk saja", "Kesedihan saja", "Diam"], "a": 0, "e": "Gerak kuat dapat memberi kesan penuh semangat."}, {"q": "Bahan yang dapat didaur ulang untuk karya adalah …", "o": ["Kardus bekas bersih", "Sisa makanan basi", "Baterai bocor", "Kaca pecah tanpa pengaman"], "a": 0, "e": "Kardus bersih dapat dimanfaatkan kembali."}, {"q": "Menghargai pertunjukan teman dapat dilakukan dengan …", "o": ["Memberi tepuk tangan", "Mengejek", "Mengganggu", "Meninggalkan sampah"], "a": 0, "e": "Tepuk tangan merupakan bentuk apresiasi."}], "matematika": [{"q": "125 + 146 = …", "o": ["271", "261", "281", "269"], "a": 0, "e": "125 ditambah 146 sama dengan 271."}, {"q": "300 − 175 = …", "o": ["125", "135", "115", "145"], "a": 0, "e": "300 dikurangi 175 sama dengan 125."}, {"q": "6 × 5 = …", "o": ["30", "25", "35", "11"], "a": 0, "e": "Enam kali lima sama dengan tiga puluh."}, {"q": "42 : 6 = …", "o": ["7", "6", "8", "9"], "a": 0, "e": "Empat puluh dua dibagi enam sama dengan tujuh."}, {"q": "Pecahan 1/4 dibaca …", "o": ["Satu per empat", "Satu per dua", "Empat per satu", "Dua per empat"], "a": 0, "e": "1/4 dibaca satu per empat atau seperempat."}, {"q": "Panjang 1 meter sama dengan … cm.", "o": ["100", "10", "50", "1.000"], "a": 0, "e": "Satu meter sama dengan seratus sentimeter."}, {"q": "Pukul 09.30 dibaca …", "o": ["Setengah sepuluh", "Setengah sembilan", "Jam sembilan tepat", "Setengah sebelas"], "a": 0, "e": "09.30 adalah pukul setengah sepuluh."}, {"q": "Bangun datar dengan tiga sisi adalah …", "o": ["Segitiga", "Persegi", "Lingkaran", "Persegi panjang"], "a": 0, "e": "Segitiga memiliki tiga sisi."}, {"q": "Data jumlah buku: 4, 6, 3. Jumlah seluruh buku adalah …", "o": ["13", "12", "14", "10"], "a": 0, "e": "4 + 6 + 3 = 13."}, {"q": "Bilangan 205 dibaca …", "o": ["Dua ratus lima", "Dua puluh lima", "Dua ratus lima puluh", "Lima ratus dua"], "a": 0, "e": "205 dibaca dua ratus lima."}], "pendidikan-pancasila": [{"q": "Sila keempat Pancasila mengajarkan kita untuk …", "o": ["Bermusyawarah", "Bertengkar", "Memaksakan kehendak", "Tidak mendengar orang lain"], "a": 0, "e": "Sila keempat menekankan kerakyatan dan musyawarah."}, {"q": "Contoh sikap sesuai sila kelima adalah …", "o": ["Bersikap adil kepada teman", "Memilih kasih", "Mengambil hak orang", "Mengejek teman"], "a": 0, "e": "Sila kelima mengajarkan keadilan sosial."}, {"q": "Perbedaan kegemaran antarteman harus …", "o": ["Dihormati", "Dijadikan bahan ejekan", "Dilarang", "Dihindari"], "a": 0, "e": "Setiap orang boleh memiliki kegemaran berbeda."}, {"q": "Manfaat gotong royong adalah pekerjaan menjadi …", "o": ["Lebih ringan", "Lebih sulit", "Tidak selesai", "Selalu tertunda"], "a": 0, "e": "Pekerjaan terasa lebih ringan jika dilakukan bersama."}, {"q": "Contoh kewajiban menjaga lingkungan adalah …", "o": ["Membuang sampah pada tempatnya", "Merusak tanaman", "Mencoret tembok", "Membuang sampah ke sungai"], "a": 0, "e": "Menjaga kebersihan merupakan tanggung jawab bersama."}, {"q": "Saat musyawarah, kita harus …", "o": ["Mendengarkan pendapat orang lain", "Memotong semua pembicaraan", "Berteriak paling keras", "Memaksa semua setuju"], "a": 0, "e": "Mendengarkan pendapat adalah sikap demokratis."}, {"q": "Semboyan bangsa Indonesia adalah …", "o": ["Bhinneka Tunggal Ika", "Tut Wuri Handayani", "Ing Ngarsa Sung Tuladha", "Jalesveva Jayamahe"], "a": 0, "e": "Bhinneka Tunggal Ika berarti berbeda-beda tetapi tetap satu."}, {"q": "Contoh menjaga persatuan di lingkungan rumah adalah …", "o": ["Bekerja sama dengan keluarga", "Membuat pertengkaran", "Tidak mau berbagi", "Mengganggu tetangga"], "a": 0, "e": "Kerja sama mempererat persatuan keluarga."}, {"q": "Jika aturan kelas dilanggar, akibatnya dapat …", "o": ["Kegiatan menjadi tidak tertib", "Semua selalu nyaman", "Kelas makin rapi", "Tidak ada pengaruh"], "a": 0, "e": "Pelanggaran aturan dapat mengganggu ketertiban."}, {"q": "Lambang sila pertama Pancasila adalah …", "o": ["Bintang", "Rantai", "Pohon beringin", "Padi dan kapas"], "a": 0, "e": "Bintang adalah lambang sila pertama."}], "bahasa-indonesia": [{"q": "Ringkasan cerita berisi …", "o": ["Pokok-pokok isi cerita", "Semua kata diulang", "Daftar tokoh saja", "Gambar sampul saja"], "a": 0, "e": "Ringkasan memuat inti cerita secara singkat."}, {"q": "Kata tanya untuk menanyakan alasan adalah …", "o": ["Mengapa", "Siapa", "Di mana", "Berapa"], "a": 0, "e": "Mengapa digunakan untuk menanyakan alasan."}, {"q": "Kalimat yang menunjukkan urutan waktu adalah …", "o": ["Setelah itu, kami pulang.", "Rumah itu besar.", "Bunga berwarna merah.", "Ayah seorang guru."], "a": 0, "e": "Setelah itu menunjukkan urutan waktu."}, {"q": "Penulisan nama orang yang benar adalah …", "o": ["Siti Aminah", "siti aminah", "Siti aminah", "sITI Aminah"], "a": 0, "e": "Nama orang diawali huruf kapital."}, {"q": "Pesan dalam cerita disebut juga …", "o": ["Amanat", "Latar", "Tokoh", "Judul"], "a": 0, "e": "Amanat adalah pesan yang disampaikan cerita."}, {"q": "Kata yang tepat untuk melengkapi “Cuaca mendung, ... kami membawa payung” adalah …", "o": ["sehingga", "tetapi", "atau", "meskipun"], "a": 0, "e": "Sehingga menghubungkan sebab dengan akibat."}, {"q": "Kalimat ajakan menjaga lingkungan adalah …", "o": ["Mari kita menanam pohon.", "Pohon itu tinggi.", "Siapa yang menanam?", "Saya melihat pohon."], "a": 0, "e": "Mari menunjukkan ajakan."}, {"q": "Informasi pada jadwal biasanya memuat …", "o": ["Kegiatan dan waktu", "Rasa makanan", "Warna pakaian", "Nama hewan saja"], "a": 0, "e": "Jadwal menunjukkan kegiatan beserta waktunya."}, {"q": "Kata “bermain” memiliki kata dasar …", "o": ["Main", "Bermain", "Ber", "Memainkan"], "a": 0, "e": "Kata bermain dibentuk dari kata dasar main."}, {"q": "Ketika teman menyampaikan cerita, kita sebaiknya …", "o": ["Menyimak dengan baik", "Memotong pembicaraan", "Bermain sendiri", "Berteriak"], "a": 0, "e": "Menyimak adalah sikap menghargai pembicara."}], "pjok": [{"q": "Gerak manipulatif melibatkan …", "o": ["Penggunaan benda atau alat", "Berpindah tempat saja", "Diam tanpa gerak", "Tidur"], "a": 0, "e": "Gerak manipulatif melibatkan objek seperti bola."}, {"q": "Contoh gerak manipulatif adalah …", "o": ["Memantulkan bola", "Berdiri tegak", "Meliukkan badan", "Berjalan santai"], "a": 0, "e": "Memantulkan bola menggunakan objek."}, {"q": "Latihan keseimbangan dapat dilakukan dengan …", "o": ["Berdiri dengan satu kaki", "Tidur telentang", "Duduk membaca", "Makan"], "a": 0, "e": "Berdiri satu kaki melatih keseimbangan."}, {"q": "Sebelum berenang, kita sebaiknya …", "o": ["Melakukan pemanasan dan mengikuti aturan", "Langsung melompat ke air", "Berenang sendirian di tempat dalam", "Berlari di tepi kolam"], "a": 0, "e": "Pemanasan dan aturan keselamatan penting sebelum berenang."}, {"q": "Kebiasaan menjaga kesehatan gigi adalah …", "o": ["Menyikat gigi dua kali sehari", "Tidak pernah menyikat gigi", "Makan permen sebelum tidur saja", "Memakai sikat bersama"], "a": 0, "e": "Menyikat gigi secara teratur menjaga kebersihan gigi."}, {"q": "Dalam permainan beregu, sikap yang baik adalah …", "o": ["Bekerja sama", "Bermain sendiri", "Menyalahkan teman", "Curang"], "a": 0, "e": "Kerja sama membantu tim bermain baik."}, {"q": "Peregangan berguna untuk membantu menjaga …", "o": ["Kelenturan otot", "Warna kulit", "Ketajaman pendengaran", "Panjang rambut"], "a": 0, "e": "Peregangan membantu kelenturan tubuh."}, {"q": "Jika merasa pusing saat olahraga, kita harus …", "o": ["Berhenti dan memberi tahu guru", "Memaksakan diri", "Berlari lebih cepat", "Diam-diam pulang"], "a": 0, "e": "Berhenti dan memberi tahu guru menjaga keselamatan."}, {"q": "Contoh kebersihan diri adalah …", "o": ["Mandi secara teratur", "Memakai baju kotor", "Tidak mencuci tangan", "Membiarkan kuku kotor"], "a": 0, "e": "Mandi teratur menjaga kebersihan tubuh."}, {"q": "Saat menggunakan alat olahraga, kita harus …", "o": ["Menggunakannya sesuai petunjuk", "Melemparkannya sembarangan", "Merusaknya", "Mengganggu teman"], "a": 0, "e": "Penggunaan sesuai petunjuk menjaga keselamatan."}]}}};
+/* ===== Kelas 3–6 (Kurikulum Merdeka Fase B & C) ===== */
+function mulberry(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gcd(a,b){return b?gcd(b,a%b):a}
+function genMath(k,s){
+ const rng=mulberry(k*97+s*13+5),R=(a,b)=>a+Math.floor(rng()*(b-a+1)),N=k<5?20:30;
+ const fm=(n,u)=>(n<0?"−":"")+Math.abs(n).toLocaleString("id-ID")+(u||""),rp=n=>"Rp "+fm(n);
+ const mk=(q,ans,e,u,w)=>{
+  const num=typeof ans==="number";let wr=w||[];
+  if(!w){const d=ans>=1000?100:ans>=100?10:ans>=20?5:1;wr=[ans+d,ans-d,ans+2*d,ans-2*d,ans+10*d,ans+3*d].filter(x=>x>=0||ans<0)}
+  wr=[...new Set(wr)].filter(x=>x!==ans);
+  if(num)for(let i=1;wr.length<3;i++){const c=ans+i;if(c!==ans&&!wr.includes(c))wr.push(c)}
+  wr=wr.slice(0,3);const pos=R(0,3);wr.splice(pos,0,ans);
+  return{q,o:wr.map(x=>typeof x==="number"?fm(x,u):x),a:pos,e};
+ };
+ const T={
+  add:()=>{const a=R(120,650),b=R(100,340);return mk(`${a} + ${b} = …`,a+b,`${a} + ${b} = ${a+b}.`)},
+  add4:()=>{const a=R(1200,6500),b=R(1000,3400);return mk(`${fm(a)} + ${fm(b)} = …`,a+b,`${fm(a)} + ${fm(b)} = ${fm(a+b)}.`)},
+  sub:()=>{const a=R(500,990),b=R(100,450);return mk(`${a} − ${b} = …`,a-b,`${a} − ${b} = ${a-b}.`)},
+  sub4:()=>{const a=R(5000,9900),b=R(1000,4500);return mk(`${fm(a)} − ${fm(b)} = …`,a-b,`${fm(a)} − ${fm(b)} = ${fm(a-b)}.`)},
+  mul:()=>{const a=R(11,49),b=R(2,9);return mk(`${a} × ${b} = …`,a*b,`${a} × ${b} = ${a*b}.`)},
+  mul2:()=>{const a=R(12,45),b=R(11,25);return mk(`${a} × ${b} = …`,a*b,`${a} × ${b} = ${a*b}.`)},
+  div:()=>{const b=R(2,9),c=R(5,40);return mk(`${b*c} ÷ ${b} = …`,c,`${b} × ${c} = ${b*c}, jadi ${b*c} ÷ ${b} = ${c}.`)},
+  div2:()=>{const b=R(6,25),c=R(8,40);return mk(`${b*c} ÷ ${b} = …`,c,`${b} × ${c} = ${b*c}, jadi ${b*c} ÷ ${b} = ${c}.`)},
+  waktu:()=>{const h=R(2,9);return mk(`${h} jam = … menit`,h*60,`1 jam = 60 menit, jadi ${h} × 60 = ${h*60} menit.`,"")},
+  uang:()=>{const n=R(2,9),p=R(5,20)*500;return mk(`Harga 1 buku ${rp(p)}. Harga ${n} buku yang sama adalah …`,rp(n*p),`${n} × ${rp(p)} = ${rp(n*p)}.`,"",[rp(n*p+p),rp(n*p-p),rp(n*p+500)])},
+  panjang:()=>{if(rng()<.5){const x=R(2,9);return mk(`${x} km = … m`,x*1000,`1 km = 1.000 m, jadi ${x} km = ${fm(x*1000)} m.`)}const x=R(2,50);return mk(`${x} m = … cm`,x*100,`1 m = 100 cm, jadi ${x} m = ${fm(x*100)} cm.`)},
+  kelP:()=>{const a=R(4,25);return mk(`Keliling persegi dengan panjang sisi ${a} cm adalah … cm`,4*a,`Keliling persegi = 4 × sisi = 4 × ${a} = ${4*a} cm.`)},
+  kelPP:()=>{const p=R(8,20),l=R(3,7);return mk(`Persegi panjang berukuran ${p} cm × ${l} cm. Kelilingnya adalah … cm`,2*(p+l),`Keliling = 2 × (${p} + ${l}) = ${2*(p+l)} cm.`)},
+  luasPP:()=>{const p=R(6,25),l=R(3,12);return mk(`Persegi panjang berukuran ${p} cm × ${l} cm. Luasnya adalah … cm²`,p*l,`Luas = panjang × lebar = ${p} × ${l} = ${p*l} cm².`)},
+  luasSeg:()=>{const a=R(4,20),t=2*R(2,10);return mk(`Segitiga memiliki alas ${a} cm dan tinggi ${t} cm. Luasnya adalah … cm²`,a*t/2,`Luas = ½ × alas × tinggi = ½ × ${a} × ${t} = ${a*t/2} cm².`)},
+  volKubus:()=>{const a=R(3,12);return mk(`Volume kubus dengan panjang rusuk ${a} cm adalah … cm³`,a**3,`Volume kubus = rusuk × rusuk × rusuk = ${a}³ = ${a**3} cm³.`)},
+  volBalok:()=>{const p=R(4,15),l=R(3,9),t=R(2,8);return mk(`Balok berukuran ${p} cm × ${l} cm × ${t} cm. Volumenya adalah … cm³`,p*l*t,`Volume = p × l × t = ${p} × ${l} × ${t} = ${p*l*t} cm³.`)},
+  pecSama:()=>{const n=R(5,12),a=R(1,n-3),b=R(1,n-1-a),c=a+b;return mk(`${a}/${n} + ${b}/${n} = …`,`${c}/${n}`,`Penyebut sama, jadi pembilang dijumlahkan: ${a} + ${b} = ${c}, hasilnya ${c}/${n}.`,"",[`${c}/${2*n}`,`${c+1}/${n}`,`${c-1}/${n}`])},
+  pecBeda:()=>{const L=[["1/2 + 1/4","3/4","2/4","1/6","2/6","1/2 = 2/4, lalu 2/4 + 1/4 = 3/4."],["1/2 + 1/3","5/6","2/5","2/6","1/6","1/2 = 3/6 dan 1/3 = 2/6, jadi 3/6 + 2/6 = 5/6."],["3/4 − 1/2","1/4","2/2","1/2","2/4","1/2 = 2/4, jadi 3/4 − 2/4 = 1/4."],["2/3 − 1/6","1/2","1/3","1/6","2/6","2/3 = 4/6, jadi 4/6 − 1/6 = 3/6 = 1/2."]];const x=L[R(0,L.length-1)];return mk(`${x[0]} = …`,x[1],x[5],"",[x[2],x[3],x[4]])},
+  rata:()=>{const m=R(60,95),v=[m+R(-8,8),m+R(-8,8),m+R(-8,8)];v.push(4*m-v[0]-v[1]-v[2]);return mk(`Rata-rata dari ${v.join(", ")} adalah …`,m,`Jumlah = ${4*m}. Rata-rata = ${4*m} ÷ 4 = ${m}.`)},
+  opcamp:()=>{const a=R(5,40),b=R(2,9),c=R(2,9);return mk(`${a} + ${b} × ${c} = …`,a+b*c,`Perkalian dikerjakan lebih dulu: ${b} × ${c} = ${b*c}, lalu ${a} + ${b*c} = ${a+b*c}.`,"",[(a+b)*c,a*b+c,a+b+c])},
+  bulat:()=>{const n=R(1000,9999),r=Math.round(n/100)*100,f=Math.floor(n/100)*100;return mk(`Pembulatan ${fm(n)} ke ratusan terdekat adalah …`,r,`Lihat angka puluhan: ${n%100>=50?"50 atau lebih, dibulatkan ke atas":"kurang dari 50, dibulatkan ke bawah"}. Hasilnya ${fm(r)}.`,"",[f,f+100,Math.round(n/10)*10])},
+  fpb:()=>{let a,b,g;do{a=R(12,60);b=R(12,60);g=gcd(a,b)}while(a===b||g===1);return mk(`FPB dari ${a} dan ${b} adalah …`,g,`Faktor persekutuan terbesar dari ${a} dan ${b} adalah ${g}.`)},
+  kpk:()=>{let a,b;do{a=R(3,12);b=R(3,12)}while(a===b);const l=a*b/gcd(a,b);return mk(`KPK dari ${a} dan ${b} adalah …`,l,`Kelipatan persekutuan terkecil dari ${a} dan ${b} adalah ${l}.`)},
+  persen:()=>{const p=[10,20,25,50,75][R(0,4)],n=R(2,20)*20;return mk(`${p}% dari ${n} adalah …`,p*n/100,`${p}/100 × ${n} = ${p*n/100}.`)},
+  pangkat:()=>{if(rng()<.5){const a=R(3,15);return mk(`${a}² = …`,a*a,`${a}² = ${a} × ${a} = ${a*a}.`)}const a=R(2,6);return mk(`${a}³ = …`,a**3,`${a}³ = ${a} × ${a} × ${a} = ${a**3}.`)},
+  akar:()=>{const r=R(4,20);return mk(`√${r*r} = …`,r,`${r} × ${r} = ${r*r}, jadi √${r*r} = ${r}.`)},
+  kecepatan:()=>{const v=R(30,80),t=R(2,6);return mk(`Mobil melaju dengan kecepatan ${v} km/jam selama ${t} jam. Jarak yang ditempuh adalah … km`,v*t,`Jarak = kecepatan × waktu = ${v} × ${t} = ${v*t} km.`)},
+  negatif:()=>{const a=R(2,12),b=R(a+1,20);if(rng()<.5)return mk(`−${a} + ${b} = …`,b-a,`−${a} + ${b} = ${b-a}.`,"",[-(b-a),b-a+1,b-a-1]);return mk(`${a} − ${b} = …`,a-b,`${a} − ${b} = ${a-b}.`,"",[b-a,a-b+1,a-b-1])},
+  lingK:()=>{const r=7*R(1,3);return mk(`Keliling lingkaran berjari-jari ${r} cm (π = 22/7) adalah … cm`,44*r/7,`Keliling = 2 × π × r = 2 × 22/7 × ${r} = ${44*r/7} cm.`)},
+  lingL:()=>{const r=7*R(1,3);return mk(`Luas lingkaran berjari-jari ${r} cm (π = 22/7) adalah … cm²`,22*r*r/7,`Luas = π × r × r = 22/7 × ${r} × ${r} = ${22*r*r/7} cm².`)}
+ };
+ const PP={"3-1":["add","sub","mul","div","waktu","uang","panjang"],"3-2":["mul","div","kelP","kelPP","luasPP","uang","waktu","panjang"],"4-1":["add4","sub4","mul2","div2","bulat","opcamp","panjang","kelPP"],"4-2":["pecSama","luasPP","kelPP","rata","opcamp","mul2","div2"],"5-1":["pecBeda","fpb","kpk","persen","luasSeg","pangkat","rata"],"5-2":["volKubus","volBalok","luasSeg","persen","kecepatan","fpb","kpk","luasPP"],"6-1":["negatif","akar","pangkat","lingK","lingL","persen","kecepatan","rata"],"6-2":["volBalok","volKubus","opcamp","fpb","kpk","luasSeg","lingL","negatif","rata"]};
+ const P=PP[k+"-"+s],seq=P.concat(PP[k+"-"+(3-s)]);
+ const out=[],seen=new Set();let g=0;
+ while(out.length<N&&g++<3000){const x=T[g<600?P[out.length%P.length]:seq[g%seq.length]]();if(!seen.has(x.q)){seen.add(x.q);out.push(x)}}
+ return out;
+}
+const q5=(q,o,e)=>({q,o,a:0,e});
+const pool={B:{
+ "ipas":[q5("Sumber energi utama di bumi adalah …",["Matahari","Bulan","Bintang","Angin"],"Matahari memberi cahaya dan panas bagi bumi."),q5("Air berubah menjadi uap air karena pemanasan. Peristiwa ini disebut …",["Menguap","Membeku","Mencair","Mengembun"],"Perubahan wujud cair menjadi gas disebut menguap."),q5("Hewan pemakan tumbuhan disebut …",["Herbivor","Karnivor","Omnivor","Insektivor"],"Herbivor memakan tumbuhan."),q5("Tumbuhan membuat makanan dengan bantuan cahaya matahari melalui proses …",["Fotosintesis","Respirasi","Penguapan","Pencernaan"],"Fotosintesis terjadi pada daun yang berklorofil."),q5("Alat untuk mengukur suhu adalah …",["Termometer","Penggaris","Timbangan","Jam"],"Termometer dipakai untuk mengukur suhu.")],
+ "bahasa-indonesia":[q5("Kata yang berlawanan arti disebut …",["Antonim","Sinonim","Homonim","Akronim"],"Antonim adalah kata yang berlawanan makna."),q5("Lawan kata \"tinggi\" adalah …",["Rendah","Besar","Panjang","Jauh"],"Antonim tinggi adalah rendah."),q5("Sinonim kata \"cantik\" adalah …",["Indah","Buruk","Jelek","Kotor"],"Cantik bersinonim dengan indah."),q5("Tanda baca di akhir kalimat tanya adalah …",["Tanda tanya (?)","Titik (.)","Seru (!)","Koma (,)"],"Kalimat tanya diakhiri tanda tanya."),q5("Kalimat yang berisi suruhan atau larangan disebut kalimat …",["Perintah","Berita","Tanya","Seru"],"Kalimat perintah meminta orang melakukan sesuatu.")],
+ "pendidikan-pancasila":[q5("Lambang sila ketiga Pancasila adalah …",["Pohon beringin","Bintang","Rantai","Kepala banteng"],"Sila ketiga (Persatuan Indonesia) berlambang pohon beringin."),q5("Lambang sila pertama Pancasila adalah …",["Bintang","Padi dan kapas","Rantai","Pohon beringin"],"Sila pertama berlambang bintang."),q5("Musyawarah merupakan pengamalan sila ke-…",["4","1","2","5"],"Sila keempat berkaitan dengan permusyawaratan."),q5("Bhinneka Tunggal Ika berarti …",["Berbeda-beda tetapi tetap satu","Bersatu kita teguh","Maju terus pantang mundur","Tanah air tercinta"],"Semboyan ini menggambarkan persatuan dalam keberagaman."),q5("Hari lahir Pancasila diperingati setiap tanggal …",["1 Juni","17 Agustus","2 Mei","28 Oktober"],"Hari Lahir Pancasila diperingati setiap 1 Juni.")]},
+C:{
+ "ipas":[q5("Organ pernapasan utama manusia adalah …",["Paru-paru","Lambung","Jantung","Ginjal"],"Paru-paru berfungsi untuk bernapas."),q5("Bagian bunga yang berkembang menjadi buah adalah …",["Bakal buah","Mahkota","Kelopak","Benang sari"],"Setelah penyerbukan, bakal buah menjadi buah."),q5("Planet yang paling dekat dengan Matahari adalah …",["Merkurius","Venus","Bumi","Mars"],"Merkurius adalah planet terdekat dari Matahari."),q5("Perubahan wujud gas menjadi cair disebut …",["Mengembun","Menguap","Membeku","Menyublim"],"Uap air yang menjadi tetes air disebut mengembun."),q5("Hewan yang berkembang biak dengan bertelur disebut …",["Ovipar","Vivipar","Ovovivipar","Herbivor"],"Ovipar adalah hewan yang bertelur.")],
+ "bahasa-indonesia":[q5("Kalimat yang memuat gagasan utama dalam paragraf disebut kalimat …",["Utama","Penjelas","Tanya","Seru"],"Kalimat utama berisi gagasan pokok paragraf."),q5("Kata baku yang benar adalah …",["Apotek","Apotik","Apotck","Apoteck"],"Kata baku menurut KBBI adalah apotek."),q5("Kata baku nama hari yang benar adalah …",["Jumat","Jum'at","Jumaat","Jumad"],"Bentuk baku adalah Jumat."),q5("\"Tubuhnya seringan kapas.\" Kalimat ini menggunakan majas …",["Perumpamaan","Hiperbola","Personifikasi","Ironi"],"Kalimat membandingkan dengan kata seperti/se-, sehingga termasuk perumpamaan."),q5("Imbuhan \"me-\" pada kata \"menulis\" termasuk …",["Awalan","Akhiran","Sisipan","Gabungan"],"Imbuhan di depan kata dasar disebut awalan.")],
+ "pendidikan-pancasila":[q5("Undang-Undang Dasar 1945 disahkan pada tanggal …",["18 Agustus 1945","17 Agustus 1945","1 Juni 1945","28 Oktober 1928"],"UUD 1945 disahkan PPKI pada 18 Agustus 1945."),q5("Lembaga yang membuat undang-undang bersama Presiden adalah …",["DPR","MA","BPK","KPK"],"DPR bersama Presiden membentuk undang-undang."),q5("Lambang negara Indonesia adalah …",["Garuda Pancasila","Bendera Merah Putih","Indonesia Raya","Bhinneka Tunggal Ika"],"Lambang negara Indonesia adalah Garuda Pancasila."),q5("Proklamasi kemerdekaan Indonesia dibacakan pada tanggal …",["17 Agustus 1945","18 Agustus 1945","1 Juni 1945","10 November 1945"],"Proklamasi dibacakan pada 17 Agustus 1945."),q5("Sila kelima Pancasila berbunyi …",["Keadilan sosial bagi seluruh rakyat Indonesia","Persatuan Indonesia","Kemanusiaan yang adil dan beradab","Ketuhanan Yang Maha Esa"],"Sila kelima adalah keadilan sosial bagi seluruh rakyat Indonesia.")]}};
+const A=(q,c,x,y,z,e)=>q5(q,[c,x,y,z],e);
+pool.B.ipas.push(
+A("Alat gerak aktif pada manusia adalah …","Otot","Tulang","Kulit","Sendi","Otot dapat berkontraksi sehingga menggerakkan tulang."),
+A("Bagian tumbuhan yang menyerap air dari tanah adalah …","Akar","Daun","Batang","Bunga","Akar menyerap air dan zat hara dari tanah."),
+A("Benda berikut yang dapat ditarik magnet adalah …","Paku besi","Plastik","Kayu","Kertas","Magnet menarik benda yang mengandung besi."),
+A("Bunyi dihasilkan oleh benda yang …","Bergetar","Diam","Dingin","Berat","Getaran benda menghasilkan bunyi."),
+A("Perubahan wujud padat menjadi cair disebut …","Mencair","Membeku","Menguap","Mengembun","Es yang meleleh menjadi air disebut mencair."),
+A("Hewan yang mengalami metamorfosis sempurna adalah …","Kupu-kupu","Belalang","Kecoa","Jangkrik","Kupu-kupu melewati tahap telur, ulat, kepompong, dan dewasa."),
+A("Rotasi Bumi menyebabkan terjadinya …","Siang dan malam","Pergantian musim","Gerhana","Pasang surut","Bumi berputar pada porosnya sehingga terjadi siang dan malam."),
+A("Gaya yang menarik benda jatuh ke bawah adalah gaya …","Gravitasi","Gesek","Magnet","Otot","Gravitasi Bumi menarik benda ke arah pusat Bumi."),
+A("Produsen dalam rantai makanan adalah …","Tumbuhan hijau","Singa","Elang","Jamur pengurai","Tumbuhan hijau membuat makanannya sendiri."),
+A("Candi Borobudur terletak di provinsi …","Jawa Tengah","Jawa Timur","Bali","Jawa Barat","Candi Borobudur berada di Magelang, Jawa Tengah."));
+pool.C.ipas.push(
+A("Tempat penyerapan sari makanan dalam sistem pencernaan adalah …","Usus halus","Lambung","Kerongkongan","Usus besar","Sari makanan diserap di usus halus."),
+A("Bagian darah yang mengangkut oksigen adalah …","Sel darah merah","Sel darah putih","Keping darah","Plasma darah","Sel darah merah mengandung hemoglobin pengikat oksigen."),
+A("Gerhana matahari terjadi saat …","Bulan berada di antara Matahari dan Bumi","Bumi berada di antara Matahari dan Bulan","Matahari berada di antara Bumi dan Bulan","Bulan menjauhi Bumi","Bayangan Bulan menutupi sebagian permukaan Bumi."),
+A("Sumber energi yang tidak terbarukan adalah …","Minyak bumi","Matahari","Angin","Air","Minyak bumi tidak dapat diperbarui dalam waktu singkat."),
+A("Perpindahan panas tanpa zat perantara disebut …","Radiasi","Konduksi","Konveksi","Evaporasi","Panas Matahari sampai ke Bumi secara radiasi."),
+A("Pada rangkaian listrik paralel, jika satu lampu padam maka lampu lainnya …","Tetap menyala","Ikut padam","Menjadi lebih redup","Menjadi lebih terang","Rangkaian paralel memiliki jalur arus yang bercabang."),
+A("Satuan gaya dalam SI adalah …","Newton","Joule","Watt","Pascal","Gaya diukur dalam newton (N)."),
+A("Bagian sel yang mengatur seluruh kegiatan sel adalah …","Inti sel","Sitoplasma","Membran sel","Dinding sel","Inti sel mengendalikan aktivitas sel."),
+A("Indonesia terletak di antara dua benua, yaitu …","Asia dan Australia","Asia dan Afrika","Eropa dan Asia","Australia dan Amerika","Indonesia berada di antara Benua Asia dan Australia."),
+A("Kerajaan Hindu tertua di Indonesia adalah …","Kutai","Majapahit","Sriwijaya","Mataram","Kerajaan Kutai di Kalimantan Timur adalah yang tertua."));
+pool.B["bahasa-indonesia"].push(
+A("Kalimat yang penggunaan huruf kapitalnya benar adalah …","Ani tinggal di Surabaya.","ani tinggal di surabaya.","Ani tinggal di surabaya.","ani tinggal di Surabaya.","Huruf kapital dipakai pada awal kalimat dan nama kota."),
+A("Kata yang menunjukkan nama benda disebut kata …","Benda","Kerja","Sifat","Tanya","Contoh kata benda: meja, buku, kucing."),
+A("Kata yang menyatakan perbuatan disebut kata …","Kerja","Benda","Sifat","Bilangan","Contoh kata kerja: berlari, menulis, makan."),
+A("Kata \"rajin\" termasuk kata …","Sifat","Benda","Kerja","Tugas","Rajin menyatakan sifat seseorang."),
+A("Cerita yang tokohnya hewan dan mengandung pesan moral disebut …","Fabel","Legenda","Biografi","Pantun","Fabel adalah cerita dengan tokoh hewan."),
+A("Pada kalimat \"Ibu membeli apel, jeruk, dan mangga\", tanda koma digunakan untuk memisahkan …","Unsur dalam perincian","Awal kalimat","Nama orang","Akhir kalimat","Koma dipakai untuk memisahkan perincian."),
+A("Kata tanya untuk menanyakan tempat adalah …","Di mana","Kapan","Siapa","Mengapa","Di mana menanyakan tempat."),
+A("Kata ulang dari \"buku\" adalah …","Buku-buku","Bukubuku","Buku buku","Bu-buku","Kata ulang ditulis dengan tanda hubung."),
+A("Kata penanda urutan yang dipakai di awal cerita langkah adalah …","Pertama","Terakhir","Akhirnya","Kemudian","Pertama menandai urutan paling awal."),
+A("Puisi terdiri atas baris-baris yang tersusun dalam …","Bait","Paragraf","Bab","Judul","Kumpulan baris dalam puisi disebut bait."));
+pool.C["bahasa-indonesia"].push(
+A("Penulisan kalimat yang benar adalah …","Ibu memasak di dapur.","Ibu memasak didapur.","Ibu memasak di-dapur.","Ibu memasak di  dapur","Kata depan \"di\" ditulis terpisah dari kata tempat."),
+A("Pantun terdiri atas empat baris dengan pola sajak …","a-b-a-b","a-a-a-a","a-b-c-d","a-a-b-b","Pantun umumnya bersajak a-b-a-b."),
+A("Sampiran pantun terletak pada baris …","Pertama dan kedua","Ketiga dan keempat","Kedua dan ketiga","Pertama dan keempat","Dua baris pertama adalah sampiran."),
+A("Isi pantun terletak pada baris …","Ketiga dan keempat","Pertama dan kedua","Kedua dan ketiga","Pertama dan keempat","Dua baris terakhir adalah isi."),
+A("Ringkasan teks sebaiknya memuat …","Gagasan pokok teks","Seluruh kalimat teks","Pendapat peringkas","Gambar dalam teks","Ringkasan memuat inti atau gagasan pokok."),
+A("Teks yang bertujuan membujuk pembaca disebut teks …","Persuasi","Narasi","Deskripsi","Prosedur","Teks persuasi mengajak atau membujuk pembaca."),
+A("Teks yang menjelaskan langkah-langkah membuat sesuatu disebut teks …","Prosedur","Persuasi","Narasi","Puisi","Teks prosedur berisi urutan langkah."),
+A("Latar dalam cerita menunjukkan …","Waktu dan tempat kejadian","Watak tokoh","Pesan cerita","Penulis cerita","Latar meliputi waktu, tempat, dan suasana."),
+A("Tokoh yang berwatak jahat dalam cerita disebut …","Antagonis","Protagonis","Narator","Penulis","Antagonis menjadi lawan tokoh utama."),
+A("Surat yang ditulis untuk teman atau keluarga disebut surat …","Pribadi","Dinas","Resmi","Niaga","Surat pribadi bersifat tidak resmi."));
+pool.B["pendidikan-pancasila"].push(
+A("Lambang sila kedua Pancasila adalah …","Rantai","Bintang","Pohon beringin","Padi dan kapas","Sila kedua berlambang rantai."),
+A("Lambang sila keempat Pancasila adalah …","Kepala banteng","Rantai","Bintang","Padi dan kapas","Sila keempat berlambang kepala banteng."),
+A("Lambang sila kelima Pancasila adalah …","Padi dan kapas","Kepala banteng","Pohon beringin","Rantai","Sila kelima berlambang padi dan kapas."),
+A("Contoh sikap sesuai sila pertama adalah …","Menghormati teman yang beribadah","Mengejek teman beda agama","Tidak mau beribadah","Memaksakan agama","Sila pertama mengajarkan toleransi beragama."),
+A("Pancasila terdiri atas … sila","5","4","6","7","Pancasila memiliki lima sila."),
+A("Bendera negara Indonesia berwarna …","Merah dan putih","Merah dan biru","Putih dan hijau","Kuning dan putih","Bendera Sang Merah Putih."),
+A("Lagu kebangsaan Indonesia adalah …","Indonesia Raya","Garuda Pancasila","Halo-Halo Bandung","Maju Tak Gentar","Indonesia Raya adalah lagu kebangsaan."),
+A("Menaati peraturan sekolah merupakan contoh …","Kewajiban siswa","Hak siswa","Pilihan siswa","Hadiah siswa","Siswa wajib menaati tata tertib sekolah."),
+A("Semboyan Bhinneka Tunggal Ika tertulis pada …","Pita yang dicengkeram burung Garuda","Perisai Garuda","Bendera","Kaki Garuda","Pita putih di cakar Garuda bertuliskan semboyan itu."),
+A("Kepala negara Indonesia adalah …","Presiden","Gubernur","Bupati","Menteri","Presiden adalah kepala negara dan kepala pemerintahan."));
+pool.C["pendidikan-pancasila"].push(
+A("Sila kedua Pancasila berbunyi …","Kemanusiaan yang adil dan beradab","Persatuan Indonesia","Ketuhanan Yang Maha Esa","Keadilan sosial bagi seluruh rakyat Indonesia","Itulah bunyi sila kedua."),
+A("Sila keempat Pancasila berbunyi …","Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan","Persatuan Indonesia","Kemanusiaan yang adil dan beradab","Ketuhanan Yang Maha Esa","Itulah bunyi sila keempat."),
+A("Badan yang mempersiapkan kemerdekaan Indonesia pada 1945 adalah …","BPUPKI","DPR","MPR","KPK","BPUPKI dibentuk untuk mempersiapkan kemerdekaan."),
+A("Sumpah Pemuda diikrarkan pada tanggal …","28 Oktober 1928","17 Agustus 1945","20 Mei 1908","10 November 1945","Sumpah Pemuda diikrarkan pada 28 Oktober 1928."),
+A("Hari Pahlawan diperingati setiap tanggal …","10 November","17 Agustus","2 Mei","1 Juni","Hari Pahlawan jatuh pada 10 November."),
+A("Pemimpin pemerintahan tingkat provinsi disebut …","Gubernur","Bupati","Wali kota","Camat","Provinsi dipimpin oleh gubernur."),
+A("Memilih dalam pemilu merupakan … warga negara yang sudah cukup umur","Hak","Kewajiban pelajar","Larangan","Hukuman","Setiap warga negara yang memenuhi syarat berhak memilih."),
+A("Norma yang bersumber dari ajaran agama disebut norma …","Agama","Hukum","Kesopanan","Kesusilaan","Norma agama berasal dari ajaran agama."),
+A("Kabupaten dipimpin oleh …","Bupati","Gubernur","Camat","Lurah","Bupati memimpin kabupaten."),
+A("Bentuk negara Indonesia adalah negara …","Kesatuan berbentuk republik","Serikat berbentuk kerajaan","Kesatuan berbentuk kerajaan","Serikat berbentuk republik","Indonesia adalah Negara Kesatuan Republik Indonesia."));
+pool.B.ipas.push(
+A("Indra penglihat pada manusia adalah …","Mata","Telinga","Hidung","Lidah","Mata berfungsi untuk melihat."),
+A("Awan terbentuk dari uap air yang …","Mengembun","Membeku","Menguap","Mencair","Uap air di udara mengembun menjadi titik air kecil pembentuk awan."),
+A("Bunyi tidak dapat merambat melalui …","Ruang hampa","Udara","Air","Logam","Bunyi memerlukan zat perantara."),
+A("Hewan yang dapat hidup di dua alam (air dan darat) disebut …","Amfibi","Reptil","Mamalia","Unggas","Katak termasuk amfibi."),
+A("Alat untuk melihat benda yang sangat kecil adalah …","Mikroskop","Teleskop","Kamera","Kaca pembesar jam","Mikroskop memperbesar benda yang sangat kecil."));
+pool.C.ipas.push(
+A("Proses pembuatan makanan pada tumbuhan terjadi di …","Kloroplas","Akar","Biji","Mitokondria","Kloroplas mengandung klorofil untuk fotosintesis."),
+A("Planet terbesar di tata surya adalah …","Jupiter","Saturnus","Bumi","Mars","Jupiter adalah planet terbesar."),
+A("Lapisan atmosfer tempat terjadinya cuaca adalah …","Troposfer","Stratosfer","Mesosfer","Termosfer","Cuaca terjadi di troposfer."),
+A("Organ yang memompa darah ke seluruh tubuh adalah …","Jantung","Paru-paru","Hati","Ginjal","Jantung memompa darah."),
+A("Zat hijau daun disebut …","Klorofil","Stomata","Xilem","Floem","Klorofil menangkap cahaya matahari."),
+A("Lebah mengisap nektar dan membantu penyerbukan bunga. Hubungan ini disebut …","Mutualisme","Parasitisme","Komensalisme","Predasi","Kedua makhluk hidup sama-sama diuntungkan."),
+A("Alat yang termasuk pengungkit adalah …","Linggis","Piring","Buku","Bola","Linggis memanfaatkan prinsip pengungkit."),
+A("Alat untuk mengukur kecepatan angin adalah …","Anemometer","Barometer","Termometer","Higrometer","Anemometer mengukur kecepatan angin."),
+A("Cairan pijar di dalam perut bumi disebut …","Magma","Lahar","Abu vulkanik","Geyser","Magma yang keluar ke permukaan disebut lava."),
+A("Contoh perubahan kimia adalah …","Besi berkarat","Es mencair","Gula larut","Kertas disobek","Berkarat menghasilkan zat baru."),
+A("Organ yang menyaring darah dan menghasilkan urine adalah …","Ginjal","Hati","Lambung","Usus","Ginjal menyaring darah."),
+A("Contoh sumber daya alam hayati adalah …","Ikan di laut","Batu bara","Emas","Minyak bumi","Sumber daya hayati berasal dari makhluk hidup."),
+A("Kota Jakarta termasuk wilayah waktu …","WIB","WITA","WIT","GMT+9","Jakarta berada di Waktu Indonesia Barat."),
+A("Hewan pemakan tumbuhan dan daging disebut …","Omnivor","Herbivor","Karnivor","Insektivor","Omnivor memakan tumbuhan dan hewan."),
+A("Satu kali revolusi Bumi mengelilingi Matahari memerlukan waktu sekitar …","1 tahun","1 bulan","1 hari","1 minggu","Revolusi Bumi menyebabkan pergantian tahun."));
+pool.B["bahasa-indonesia"].push(
+A("Sinonim kata \"pandai\" adalah …","Pintar","Bodoh","Malas","Lambat","Pandai dan pintar bermakna sama."),
+A("Antonim kata \"rajin\" adalah …","Malas","Giat","Tekun","Pintar","Lawan rajin adalah malas."),
+A("Kalimat tanya ditunjukkan oleh kalimat …","Siapa nama temanmu?","Aku suka membaca.","Tolong tutup pintu.","Wah, indahnya pantai!","Kalimat tanya diakhiri tanda tanya."),
+A("Paragraf terdiri atas beberapa …","Kalimat","Huruf","Bab","Judul","Paragraf tersusun dari kalimat-kalimat."),
+A("Kata dasar dari \"bermain\" adalah …","Main","Ber","Mainan","Bermai","Awalan ber- + main = bermain."));
+pool.C["bahasa-indonesia"].push(
+A("Kata baku yang benar adalah …","Sistem","Sistim","Sestem","Sistym","Bentuk baku menurut KBBI adalah sistem."),
+A("Kata baku yang benar adalah …","Analisis","Analisa","Analises","Analicis","Bentuk baku adalah analisis."),
+A("Kata baku yang benar adalah …","Izin","Ijin","Idzin","Ijjin","Bentuk baku adalah izin."),
+A("Kata baku yang benar adalah …","Objek","Obyek","Obejk","Objeck","Bentuk baku adalah objek."),
+A("Majas yang melebih-lebihkan sesuatu disebut …","Hiperbola","Metafora","Litotes","Ironi","Hiperbola menyatakan hal secara berlebihan."),
+A("Majas yang memberi sifat manusia kepada benda mati disebut …","Personifikasi","Hiperbola","Simile","Metafora","Contoh: angin berbisik."),
+A("Kalimat yang terdiri atas dua klausa atau lebih disebut kalimat …","Majemuk","Tunggal","Tanya","Seru","Kalimat majemuk memiliki lebih dari satu klausa."),
+A("Bagian kalimat yang menyatakan pelaku disebut …","Subjek","Predikat","Objek","Keterangan","Subjek adalah pelaku atau yang dibicarakan."),
+A("Bagian kalimat yang menyatakan perbuatan disebut …","Predikat","Subjek","Objek","Pelengkap","Predikat menerangkan perbuatan atau keadaan subjek."),
+A("Wawancara adalah kegiatan …","Tanya jawab dengan narasumber","Membaca puisi","Menyalin teks","Menggambar","Wawancara berupa tanya jawab untuk memperoleh informasi."),
+A("Dalam teks berita, unsur \"where\" menjawab pertanyaan …","Di mana","Siapa","Kapan","Mengapa","Where berarti di mana."),
+A("Biografi adalah …","Riwayat hidup seseorang yang ditulis orang lain","Kisah khayalan","Kumpulan pantun","Cerita tentang hewan","Biografi ditulis orang lain tentang hidup seseorang."),
+A("Cerita rakyat Malin Kundang berasal dari daerah …","Sumatra Barat","Jawa Barat","Jawa Tengah","Bali","Malin Kundang berasal dari Sumatra Barat."),
+A("Cerita rakyat Sangkuriang berasal dari daerah …","Jawa Barat","Sumatra Barat","Kalimantan","Sulawesi","Sangkuriang adalah cerita rakyat Jawa Barat."),
+A("Tanda petik dua (\"…\") digunakan untuk mengapit …","Petikan langsung","Judul buku","Nama kota","Angka","Tanda petik mengapit kalimat langsung."));
+pool.B["pendidikan-pancasila"].push(
+A("Sila ketiga Pancasila berbunyi …","Persatuan Indonesia","Kemanusiaan yang adil dan beradab","Ketuhanan Yang Maha Esa","Keadilan sosial","Itulah bunyi sila ketiga."),
+A("Sila pertama Pancasila berbunyi …","Ketuhanan Yang Maha Esa","Persatuan Indonesia","Kemanusiaan yang adil dan beradab","Keadilan sosial","Itulah bunyi sila pertama."),
+A("Membantu teman yang sedang kesusahan menunjukkan sikap …","Peduli","Sombong","Egois","Malas","Saling menolong adalah sikap peduli."),
+A("Keberagaman suku dan budaya di Indonesia harus kita …","Hargai","Ejek","Hindari","Pisahkan","Keberagaman adalah kekayaan bangsa."),
+A("Jumlah bulu pada masing-masing sayap Garuda Pancasila adalah …","17","8","19","45","17 melambangkan tanggal proklamasi, 17 Agustus."));
+pool.C["pendidikan-pancasila"].push(
+A("Sila pertama Pancasila berbunyi …","Ketuhanan Yang Maha Esa","Persatuan Indonesia","Kemanusiaan yang adil dan beradab","Keadilan sosial bagi seluruh rakyat Indonesia","Itulah bunyi sila pertama."),
+A("Sila ketiga Pancasila berbunyi …","Persatuan Indonesia","Ketuhanan Yang Maha Esa","Kemanusiaan yang adil dan beradab","Keadilan sosial bagi seluruh rakyat Indonesia","Itulah bunyi sila ketiga."),
+A("Lembaga yang berwenang mengubah dan menetapkan UUD adalah …","MPR","DPR","MA","KPK","MPR berwenang mengubah dan menetapkan UUD."),
+A("Presiden Indonesia dipilih langsung oleh rakyat melalui …","Pemilihan umum","Undian","Penunjukan","Lomba","Presiden dipilih melalui pemilu."),
+A("Pemilu di Indonesia dilaksanakan setiap … tahun sekali","5","3","4","10","Pemilu diselenggarakan lima tahun sekali."),
+A("Rumusan Pancasila terdapat dalam Pembukaan UUD 1945 alinea ke-…","4","1","2","3","Rumusan Pancasila ada pada alinea keempat."),
+A("Sesuatu yang harus dilakukan warga negara disebut …","Kewajiban","Hak","Hadiah","Kebebasan","Kewajiban adalah hal yang wajib dilaksanakan."),
+A("Membayar pajak merupakan … warga negara","Kewajiban","Hak","Pilihan","Hadiah","Pajak adalah kewajiban warga negara."),
+A("Norma yang bersumber dari hati nurani disebut norma …","Kesusilaan","Agama","Hukum","Kesopanan","Norma kesusilaan berasal dari hati nurani."),
+A("Pemimpin desa disebut …","Kepala desa","Camat","Bupati","Gubernur","Desa dipimpin oleh kepala desa."),
+A("Teks proklamasi kemerdekaan dibacakan oleh …","Ir. Soekarno","Mohammad Hatta","Sutan Sjahrir","Ki Hajar Dewantara","Soekarno membacakan proklamasi pada 17 Agustus 1945."),
+A("Bendera Merah Putih pada saat proklamasi dijahit oleh …","Fatmawati","Sayuti Melik","Ahmad Soebardjo","Cut Nyak Dien","Ibu Fatmawati menjahit bendera pusaka."),
+A("Perbedaan pendapat sebaiknya diselesaikan dengan …","Musyawarah","Pertengkaran","Paksaan","Mengabaikan","Musyawarah untuk mufakat sesuai sila keempat."),
+A("Toleransi adalah sikap …","Menghargai perbedaan","Memaksakan pendapat","Menjauhi orang lain","Mengejek teman","Toleransi berarti menghargai perbedaan."),
+A("Istilah Pancasila pertama kali dikemukakan dalam sidang BPUPKI oleh …","Ir. Soekarno","Mohammad Yamin","Soepomo","Mohammad Hatta","Soekarno menyampaikan pidato 1 Juni 1945."));
+pool.B.pjok=[
+A("Pemanasan dilakukan sebelum olahraga untuk …","Mencegah cedera","Membuat lelah","Mengantuk","Mengurangi tenaga","Pemanasan menyiapkan otot."),
+A("Pendinginan dilakukan …","Setelah berolahraga","Sebelum berolahraga","Saat tidur","Saat makan","Pendinginan menenangkan tubuh."),
+A("Berlari termasuk gerak …","Berpindah tempat","Di tempat","Diam","Berhenti","Berlari memindahkan tubuh."),
+A("Membungkuk termasuk gerak …","Tidak berpindah tempat","Berpindah tempat","Melompat","Berlari","Dilakukan di tempat."),
+A("Permainan bola besar adalah …","Sepak bola","Kasti","Bulu tangkis","Lompat tali","Sepak bola memakai bola besar."),
+A("Jumlah pemain sepak bola dalam satu tim di lapangan adalah …","11","9","7","5","Satu tim berisi 11 pemain."),
+A("Dalam bola basket, bola dibawa dengan cara …","Dipantulkan (dribble)","Ditendang","Dipukul raket","Diseret","Dribble memantulkan bola."),
+A("Tolakan lompat jauh dilakukan dengan …","Satu kaki","Dua tangan","Kepala","Duduk","Tolakan satu kaki di papan."),
+A("Lari jarak pendek disebut …","Sprint","Maraton","Jogging","Estafet","Sprint adalah lari cepat jarak dekat."),
+A("Gerakan senam lantai berikut adalah …","Guling depan","Smash","Servis","Dribble","Guling depan ada pada senam lantai."),
+A("Makanan yang menyehatkan tubuh disebut makanan …","Bergizi","Manis saja","Berminyak","Instan","Gizi seimbang menyehatkan."),
+A("Mandi sebaiknya dilakukan paling sedikit …","Dua kali sehari","Sekali seminggu","Sebulan sekali","Saat kotor saja","Menjaga kebersihan badan."),
+A("Olahraga teratur membuat tubuh …","Sehat dan bugar","Mudah sakit","Lemas","Kurus sekali","Olahraga menyehatkan."),
+A("Alat yang dipukul dalam bulu tangkis adalah …","Kok","Bola basket","Bola voli","Cakram","Dipukul dengan raket."),
+A("Renang dengan gerak tangan seperti katak adalah gaya …","Dada","Bebas","Punggung","Kupu-kupu","Gaya dada mirip katak."),
+A("Senam irama diiringi dengan …","Musik","Peluit saja","Hening","Tepuk tangan penonton","Gerak mengikuti irama musik."),
+A("Permainan tradisional yang memakai tali adalah …","Lompat tali","Sepak bola","Basket","Voli","Lompat tali memakai tali."),
+A("Jumlah pemain bola voli satu tim di lapangan adalah …","6","5","7","11","Satu tim 6 pemain."),
+A("Menerima kekalahan dengan lapang dada adalah sikap …","Sportif","Curang","Sombong","Marah","Sportif menghargai hasil."),
+A("Denyut nadi dapat dihitung di …","Pergelangan tangan","Telapak kaki","Rambut","Kuku","Nadi terasa di pergelangan tangan.")];
+pool.C.pjok=[
+A("Alat yang diserahkan dalam lari estafet adalah …","Tongkat estafet","Bola","Raket","Tali","Tongkat dioper antarpelari."),
+A("Jumlah pelari dalam satu regu lari estafet adalah …","4","2","6","8","Satu regu terdiri atas empat pelari."),
+A("Tolak peluru termasuk cabang olahraga …","Atletik","Renang","Senam","Bela diri","Tolak peluru termasuk nomor atletik."),
+A("Gaya lompat tinggi yang umum dipakai saat ini adalah gaya …","Flop","Gunting","Straddle","Kangkang","Gaya flop (Fosbury flop)."),
+A("Passing bawah bola voli dilakukan dengan …","Lengan bawah","Kaki","Kepala","Punggung","Bola dipantulkan lengan bawah."),
+A("Gerakan memukul bola untuk memulai permainan bola voli disebut …","Servis","Smash","Blok","Dribble","Servis membuka permainan."),
+A("Jumlah pemain bola basket satu tim di lapangan adalah …","5","6","7","11","Satu tim 5 pemain."),
+A("Tinggi ring basket dari lantai adalah …","3,05 meter","2 meter","2,5 meter","4 meter","Ring setinggi 3,05 m."),
+A("Satu regu sepak takraw terdiri atas … pemain","3","5","7","11","Satu regu tiga pemain."),
+A("Pencak silat adalah seni bela diri asli …","Indonesia","Jepang","Korea","Tiongkok","Pencak silat berasal dari Nusantara."),
+A("Latihan untuk daya tahan jantung dan paru-paru adalah …","Lari jarak jauh","Duduk","Tidur","Menulis","Lari jauh melatih daya tahan."),
+A("Latihan untuk melenturkan otot disebut …","Peregangan","Push-up","Sprint","Lompat jauh","Peregangan melatih kelentukan."),
+A("Latihan untuk kekuatan otot lengan adalah …","Push-up","Peregangan","Berjalan santai","Tidur","Push-up melatih lengan."),
+A("Kurang bergerak dapat menyebabkan …","Kegemukan","Tubuh bugar","Otot kuat","Jantung kuat","Kurang gerak memicu obesitas."),
+A("Rokok dapat merusak …","Paru-paru","Rambut saja","Kuku saja","Kaki saja","Asap rokok merusak paru-paru."),
+A("Langkah awal menolong luka lecet ringan adalah …","Membersihkan luka dengan air bersih","Menaburi tanah","Membiarkan terbuka kotor","Menggaruk","Luka dibersihkan dulu."),
+A("Kaki terkilir sebaiknya dikompres …","Dingin","Air mendidih","Api","Pasir panas","Kompres dingin."),
+A("Renang gaya punggung dilakukan dengan posisi tubuh …","Telentang","Tengkurap","Berdiri","Miring terus","Gaya punggung telentang."),
+A("Sikap fair play berarti bermain …","Jujur","Curang","Kasar","Menyerang lawan","Fair play berarti jujur."),
+A("Wasit bertugas …","Memimpin pertandingan sesuai aturan","Bermain sebagai pemain","Menjual tiket","Menyoraki tim","Wasit menegakkan aturan."),
+A("Servis bulu tangkis dilakukan ke arah …","Diagonal","Lurus","Belakang","Atas","Servis menyilang."),
+A("Alat pemukul dalam permainan kasti adalah …","Tongkat pemukul","Raket","Cakram","Stik hoki","Bola kasti dipukul tongkat."),
+A("Permainan bola kecil adalah …","Kasti","Sepak bola","Basket","Voli","Kasti memakai bola kecil."),
+A("Gerak manipulatif adalah gerak …","Menggunakan alat atau benda","Berpindah tempat","Diam","Tidur","Contoh: melempar, menendang."),
+A("Mengayun dan memutar termasuk gerak …","Nonlokomotor","Lokomotor","Manipulatif","Statis","Dilakukan di tempat."),
+A("Melompat dan berlari termasuk gerak …","Lokomotor","Nonlokomotor","Diam","Manipulatif","Berpindah tempat."),
+A("Senam lantai dilakukan di atas …","Matras","Aspal","Pasir","Air","Matras melindungi tubuh."),
+A("Lari 100 meter termasuk nomor lari …","Jarak pendek","Jarak jauh","Estafet","Gawang","100 m jarak pendek."),
+A("Setelah berolahraga sebaiknya kita …","Mandi dan berganti pakaian","Langsung tidur","Makan banyak gula","Berendam es","Menjaga kebersihan."),
+A("Kebersihan diri setelah olahraga perlu dijaga agar …","Terhindar dari penyakit kulit","Cepat lelah","Badan bau","Kotor","Mandi menjaga kesehatan.")];
+pool.B["seni-budaya"]=[
+A("Warna primer adalah …","Merah, kuning, biru","Hijau, ungu, jingga","Hitam, putih, abu","Merah muda, cokelat, hijau","Warna pokok."),
+A("Merah dicampur kuning menghasilkan warna …","Jingga","Hijau","Ungu","Cokelat","Merah + kuning = jingga."),
+A("Biru dicampur kuning menghasilkan warna …","Hijau","Jingga","Ungu","Merah","Biru + kuning = hijau."),
+A("Merah dicampur biru menghasilkan warna …","Ungu","Hijau","Jingga","Kuning","Merah + biru = ungu."),
+A("Alat musik bambu dari Jawa Barat adalah …","Angklung","Sasando","Tifa","Kolintang","Angklung dari Jawa Barat."),
+A("Gamelan berasal dari daerah …","Jawa","Papua","Aceh","Nusa Tenggara","Gamelan alat musik Jawa."),
+A("Tari Kecak berasal dari …","Bali","Aceh","Papua","Riau","Kecak dari Bali."),
+A("Tari Saman berasal dari …","Aceh","Bali","Maluku","Jawa Barat","Saman dari Aceh."),
+A("Rumah adat Joglo berasal dari …","Jawa Tengah","Papua","Sumatra Barat","Bali","Joglo rumah adat Jawa."),
+A("Rumah gadang berasal dari …","Sumatra Barat","Jawa Tengah","Papua","Bali","Rumah gadang Minangkabau."),
+A("Kain bergambar motif yang dibuat dengan malam disebut …","Batik","Tenun","Songket","Sulam","Batik memakai malam."),
+A("Garis yang bentuknya melengkung disebut garis …","Lengkung","Lurus","Patah","Silang","Melengkung."),
+A("Tinggi rendahnya bunyi disebut …","Nada","Warna","Irama","Gerak","Nada tinggi atau rendah."),
+A("Nada \"do\" ditulis dengan angka …","1","2","3","5","Do = 1."),
+A("Karya seni rupa dua dimensi adalah …","Lukisan","Patung","Ukiran","Keramik","Lukisan berbentuk datar."),
+A("Karya seni rupa tiga dimensi adalah …","Patung","Lukisan","Gambar","Foto","Patung memiliki volume."),
+A("Seni melipat kertas disebut …","Origami","Kolase","Batik","Montase","Origami melipat kertas."),
+A("Karya dari tempelan berbagai bahan disebut …","Kolase","Origami","Lukisan","Pahatan","Kolase menempel bahan."),
+A("Lagu daerah \"Apuse\" berasal dari …","Papua","Aceh","Bali","Jawa","Apuse dari Papua."),
+A("Wayang kulit terbuat dari …","Kulit hewan","Kayu","Kain","Kertas","Dibuat dari kulit hewan.")];
+pool.C["seni-budaya"]=[
+A("Warna sekunder adalah …","Jingga, hijau, ungu","Merah, kuning, biru","Hitam, putih, abu","Merah, hijau, putih","Campuran warna primer."),
+A("Warna hangat adalah …","Merah, jingga, kuning","Biru, hijau, ungu","Hitam, putih, abu","Biru tua saja","Memberi kesan hangat."),
+A("Warna dingin adalah …","Biru, hijau, ungu","Merah, jingga, kuning","Merah saja","Kuning saja","Memberi kesan sejuk."),
+A("Tari Pendet berasal dari …","Bali","Jawa Barat","Sumatra Barat","Aceh","Pendet dari Bali."),
+A("Tari Jaipong berasal dari …","Jawa Barat","Bali","Papua","Maluku","Jaipong dari Jawa Barat."),
+A("Tari Piring berasal dari …","Sumatra Barat","Bali","Jawa Timur","Papua","Piring dari Minangkabau."),
+A("Tari Reog Ponorogo berasal dari …","Jawa Timur","Jawa Barat","Bali","Aceh","Ponorogo di Jawa Timur."),
+A("Tari Tor-Tor berasal dari …","Sumatra Utara","Bali","Papua","Jawa Barat","Tor-Tor dari Batak."),
+A("Alat musik Sasando berasal dari …","Nusa Tenggara Timur","Jawa Barat","Papua","Aceh","Sasando dari NTT."),
+A("Alat musik Tifa berasal dari …","Maluku dan Papua","Jawa Barat","Sumatra","Bali","Tifa dari Indonesia Timur."),
+A("Alat musik Kolintang berasal dari …","Sulawesi Utara","Jawa Barat","Papua","Aceh","Kolintang dari Minahasa."),
+A("Rumah adat Honai berasal dari …","Papua","Bali","Aceh","Jawa","Honai di Papua."),
+A("Rumah adat Tongkonan berasal dari …","Sulawesi Selatan","Papua","Aceh","Jawa Barat","Tongkonan milik suku Toraja."),
+A("Rumah adat Betang berasal dari …","Kalimantan","Papua","Bali","Aceh","Betang dari Kalimantan."),
+A("Keras lembutnya bunyi dalam musik disebut …","Dinamika","Tempo","Nada","Birama","Dinamika."),
+A("Birama 4/4 memiliki … ketukan dalam satu birama","4","3","2","8","Pembilang menunjukkan ketukan."),
+A("Birama 3/4 memiliki … ketukan dalam satu birama","3","4","2","6","Tiga ketukan."),
+A("Jumlah nada pokok pada tangga nada diatonis adalah …","7","5","8","12","Do, re, mi, fa, sol, la, si."),
+A("Karya seni rupa yang dibuat untuk dinikmati keindahannya disebut seni rupa …","Murni","Terapan","Kriya","Industri","Seni rupa murni."),
+A("Karya seni rupa yang indah sekaligus memiliki fungsi disebut seni rupa …","Terapan","Murni","Abstrak","Statis","Seni rupa terapan."),
+A("Cat yang diencerkan dengan air dan tampak transparan disebut …","Cat air","Cat minyak","Cat besi","Tinta","Cat air."),
+A("Alat untuk menggambar motif batik tulis adalah …","Canting","Palu","Gergaji","Kuas besar","Canting mengalirkan malam."),
+A("Unsur dasar seni rupa adalah …","Titik, garis, dan bidang","Nada dan irama","Suara","Gerak","Titik, garis, bidang."),
+A("Orang yang memainkan wayang disebut …","Dalang","Penari","Pemahat","Penyanyi","Dalang."),
+A("Tari yang berasal dan diwariskan turun-temurun disebut tari …","Tradisional","Modern","Kreasi baru","Lepas","Tradisional."),
+A("Lagu daerah \"Rasa Sayange\" berasal dari …","Maluku","Aceh","Jawa Barat","Bali","Rasa Sayange dari Maluku."),
+A("Lagu daerah \"Gundul-Gundul Pacul\" berasal dari …","Jawa Tengah","Papua","Aceh","Kalimantan","Dari Jawa Tengah."),
+A("Orang yang memerankan tokoh dalam drama disebut …","Pemeran","Sutradara","Penonton","Penulis","Pemeran."),
+A("Membuat patung dengan mengurangi bahan seperti kayu disebut …","Memahat","Mencetak","Menempel","Melipat","Memahat."),
+A("Karya seni dari kayu hasil memahat disebut …","Ukiran","Lukisan cat air","Origami","Kolase","Ukiran hasil pahatan.")];
+(function(){const sh=(arr,r)=>{const a=arr.map(x=>({...x}));return a.map((x,j)=>{const c=x.o[0],o=x.o.slice(),p=(r+j*3)%4;o.splice(0,1);o.splice(p,0,c);return{q:x.q,o,a:p,e:x.e}})};
+ [3,4,5,6].forEach(k=>{questionBank[k]={};[1,2].forEach(s=>{const ph=k<5?"B":"C",b={matematika:genMath(k,s)};Object.keys(pool[ph]).forEach((key,i)=>{b[key]=sh(pool[ph][key],k+s+i)});questionBank[k][s]=b})});})();
+/* Acak posisi jawaban benar untuk kelas 1-2 (tetap/deterministik) */
+(function(){[1,2].forEach(k=>[1,2].forEach(s=>{const b=questionBank[k][s];Object.keys(b).forEach((key,i)=>{b[key]=b[key].map((x,j)=>{const n=x.o.length,c=x.o[x.a],o=x.o.filter((_,m)=>m!==x.a),p=(k*2+s+i+j*3)%n;o.splice(p,0,c);return{q:x.q,o,a:p,e:x.e}})})}));})();
+
+const subjectNames = {"bahasa-indonesia": "Bahasa Indonesia", "matematika": "Matematika", "pendidikan-pancasila": "Pendidikan Pancasila", "pjok": "PJOK", "seni-budaya": "Seni Budaya", "ipas": "IPAS"};
+const subjectIcons = {"bahasa-indonesia":"📖","matematika":"🔢","pendidikan-pancasila":"🇮🇩","pjok":"⚽","seni-budaya":"🎨","ipas":"🔬"};
+const subjectColors = {"bahasa-indonesia":"#0ea5a5","matematika":"#f59e0b","pendidikan-pancasila":"#d62839","pjok":"#16a34a","seni-budaya":"#9333ea","ipas":"#0284c7"};
+const WHATSAPP_CHANNEL = "https://whatsapp.com/channel/0029VbDZcia4IBhAPoyqd01g";
+let currentClass=1,currentSemester=1,currentSubject="",questions=[],submitted=false,scoreClass=1;
+const views=["homeView","semesterView","termView","subjectView","quizView","scoresView","toolsView","calcView","infoView"];
+function showView(id){views.forEach(v=>document.getElementById(v).classList.toggle("hidden",v!==id));window.scrollTo(0,0);setNav(id);}
+function setNav(id){
+ document.getElementById("navHome").classList.toggle("active",id==="homeView");
+ document.getElementById("navInfo").classList.toggle("active",id==="infoView");
+ document.getElementById("navTools").classList.toggle("active",["toolsView","scoresView","calcView"].includes(id));
+}
+function goHome(){document.getElementById("headerTitle").innerHTML="Belajar Seru,<br>Raih Prestasi!";document.getElementById("headerSub").textContent="Latihan soal Kurikulum Merdeka • Fase A–C";showView("homeView");}
+function showClassPicker(){document.getElementById("headerTitle").textContent="Pilih Kelas";document.getElementById("headerSub").textContent="Kelas 1 sampai Kelas 6";document.getElementById("semesterHeading").textContent="Pilih Kelas";showView("semesterView");}
+function showSemesters(k){currentClass=k;document.getElementById("headerTitle").textContent="Kelas "+k;document.getElementById("headerSub").textContent="Pilih semester";document.getElementById("termHeading").textContent="Kelas "+k;showView("termView");}
+function showSubjects(s){currentSemester=s;document.getElementById("headerTitle").textContent="Kelas "+currentClass+" • Semester "+s;document.getElementById("headerSub").textContent="Pilih mata pelajaran";document.getElementById("subjectHeading").textContent="Mata Pelajaran";const grid=document.getElementById("subjectGrid");grid.innerHTML="";Object.keys(subjectNames).filter(key=>key!=="ipas"||currentClass>=3).forEach(key=>{const n=((questionBank[String(currentClass)][String(s)]||{})[key]||[]).length;const b=document.createElement("button");b.className="subject-card";b.style.background=subjectColors[key];b.innerHTML=`<span class="blob"></span><span class="emoji">${subjectIcons[key]}</span><span class="name">${subjectNames[key]}</span><span class="count">${n?n+" soal":"Segera hadir"}</span>`;if(n)b.onclick=()=>openQuiz(key);else b.style.opacity=".55";grid.appendChild(b);});showView("subjectView");}
+function openQuiz(subject){currentSubject=subject;questions=questionBank[String(currentClass)][String(currentSemester)][subject];submitted=false;document.getElementById("headerTitle").textContent="Latihan Soal";document.getElementById("headerSub").textContent="Kelas "+currentClass+" • Semester "+currentSemester;document.getElementById("quizHeading").textContent=subjectIcons[subject]+" "+subjectNames[subject];document.getElementById("quizSubjectPill").textContent="PAKET 1";document.getElementById("quizMeta").textContent="Kelas "+currentClass+" • Semester "+currentSemester+" • "+questions.length+" soal pilihan ganda";document.getElementById("result").innerHTML="";document.getElementById("submitBtn").disabled=false;document.getElementById("submitBtn").textContent="✅ Periksa Jawaban";renderQuestions();showView("quizView");}
+function renderQuestions(){const form=document.getElementById("quizForm");form.innerHTML=questions.map((item,i)=>`<section class="card"><span class="qnum-badge">SOAL ${i+1} DARI ${questions.length}</span><div class="question">${item.q}</div>${item.o.map((option,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}"><span class="letter">${String.fromCharCode(65+j)}.</span><span>${option}</span></label>`).join("")}<div id="feedback-${i}"></div></section>`).join("");}
+function gradeQuiz(){if(submitted)return;let score=0,unanswered=0;questions.forEach((item,i)=>{const chosen=document.querySelector(`input[name="q${i}"]:checked`);if(!chosen)unanswered++;const ok=chosen&&Number(chosen.value)===item.a;if(ok)score++;document.getElementById("feedback-"+i).innerHTML=`<div class="feedback"><span class="${ok?"correct":"wrong"}">${ok?"✅ Benar":"❌ Jawaban benar: "+String.fromCharCode(65+item.a)}</span><p style="margin:4px 0 0">${item.e}</p></div>`;});submitted=true;const value=Math.round(score/questions.length*100);document.getElementById("result").innerHTML=`<section class="card" style="text-align:center"><div class="confetti">🎉🎊🎉</div><h2>Hasil Latihan</h2><div class="score-ring" style="--pct:${value}"><span class="val">${value}</span></div><p><b>${score} / ${questions.length} benar</b></p><p class="meta">${unanswered?unanswered+" soal belum dijawab. ":""}Nilai tersimpan di perangkat ini.</p></section>`;try{const key="hasil-belajar-kelas-"+currentClass;const old=JSON.parse(localStorage.getItem(key)||"[]");old.push({kelas:currentClass,semester:currentSemester,mapel:subjectNames[currentSubject],subjectKey:currentSubject,nilai:value,tanggal:new Date().toLocaleString("id-ID")});localStorage.setItem(key,JSON.stringify(old.slice(-100)));}catch(e){}document.getElementById("submitBtn").disabled=true;document.getElementById("submitBtn").textContent="Sudah diperiksa";window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});}
+function restartQuiz(){openQuiz(currentSubject);}
+
+function goScores(){document.getElementById("headerTitle").textContent="Nilai Saya";document.getElementById("headerSub").textContent="Riwayat hasil latihan soal";setScoreClass(scoreClass);showView("scoresView");}
+function setScoreClass(k){scoreClass=k;for(let i=1;i<=6;i++)document.getElementById("tabK"+i).classList.toggle("active",k===i);renderScores();}
+function renderScores(){
+ const card=document.getElementById("scoresCard");
+ let data=[];
+ try{data=JSON.parse(localStorage.getItem("hasil-belajar-kelas-"+scoreClass)||"[]");}catch(e){data=[];}
+ if(!data.length){card.innerHTML=`<div class="empty-state"><span class="big">🗒️</span>Belum ada nilai untuk Kelas ${scoreClass}.<br>Yuk kerjakan latihan soal dulu!</div>`;return;}
+ const rows=data.slice().reverse().map(d=>{
+  const color=subjectColors[d.subjectKey]||"#174a8b";
+  const icon=subjectIcons[d.subjectKey]||"📘";
+  return `<div class="score-row"><div class="badge" style="background:${color}">${icon}</div><div class="info" style="flex:1"><b>${d.mapel} · Nilai ${d.nilai}</b><span>Kelas ${d.kelas} • Semester ${d.semester} • ${d.tanggal}</span></div></div>`;
+ }).join("");
+ card.innerHTML=rows+`<button class="clearbtn" onclick="clearScores()">🗑️ Hapus riwayat Kelas ${scoreClass}</button>`;
+}
+function clearScores(){
+ customConfirm("Hapus semua riwayat nilai Kelas "+scoreClass+"?",function(){
+  localStorage.removeItem("hasil-belajar-kelas-"+scoreClass);
+  renderScores();
+  customAlert("Riwayat nilai Kelas "+scoreClass+" telah dihapus.");
+ });
+}
+
+function goTools(){document.getElementById("headerTitle").textContent="Tools";document.getElementById("headerSub").textContent="Pengaturan & bantuan aplikasi";showView("toolsView");}
+function clearAllScores(){
+ customConfirm("Hapus semua riwayat nilai Kelas 1–6?",function(){
+  for(let i=1;i<=6;i++)localStorage.removeItem("hasil-belajar-kelas-"+i);
+  
+  customAlert("Semua riwayat nilai telah dihapus.");
+ });
+}
+function openWhatsApp(){
+ window.open(WHATSAPP_CHANNEL,"_blank");
+}
+
+/* ===== Modal helpers (pengganti confirm/alert bawaan browser) ===== */
+function showModal(id){document.getElementById(id).classList.remove("hidden");}
+function hideModal(id){document.getElementById(id).classList.add("hidden");}
+let pendingConfirmYes=null;
+function customConfirm(message,onYes){document.getElementById("confirmMsg").textContent=message;pendingConfirmYes=onYes;showModal("confirmModal");}
+function confirmYes(){hideModal("confirmModal");const fn=pendingConfirmYes;pendingConfirmYes=null;if(fn)fn();}
+function confirmNo(){hideModal("confirmModal");pendingConfirmYes=null;}
+function customAlert(message){document.getElementById("alertMsg").textContent=message;showModal("alertModal");}
+
+/* ===== Verifikasi orang tua (bukan anak-anak) ===== */
+let pendingGateTarget=null,pendingGateAnswer=0;
+function randGateQuestion(){
+ const a=5+Math.floor(Math.random()*6);
+ const b=5+Math.floor(Math.random()*6);
+ pendingGateAnswer=a*b;
+ document.getElementById("gateQuestion").textContent=a+" × "+b+" = ?";
+ document.getElementById("gateInput").value="";
+ document.getElementById("gateError").classList.add("hidden");
+}
+function openGate(targetFn){
+ pendingGateTarget=targetFn;
+ randGateQuestion();
+ showModal("gateModal");
+ setTimeout(function(){document.getElementById("gateInput").focus();},100);
+}
+function submitGate(){
+ const raw=document.getElementById("gateInput").value;
+ const val=Number(raw);
+ if(raw!==""&&val===pendingGateAnswer){
+  hideModal("gateModal");
+  const fn=pendingGateTarget;pendingGateTarget=null;
+  if(fn)fn();
+ }else{
+  document.getElementById("gateError").classList.remove("hidden");
+  randGateQuestion();
+ }
+}
+
+function goInfo(){document.getElementById("headerTitle").textContent="Papan Info";document.getElementById("headerSub").textContent="Informasi, bantuan, dan tentang aplikasi";showView("infoView");}
+
+/* ===== Kalkulator sederhana (tambah, kurang, kali, bagi) ===== */
+let calcCurrent="0",calcPrev=null,calcOp=null,calcReset=false;
+function calcOpSymbol(op){return op==="+"?"+":op==="-"?"−":op==="*"?"×":op==="/"?"÷":"";}
+function calcUpdateDisplay(){
+ document.getElementById("calcCurr").textContent=calcCurrent;
+ document.getElementById("calcPrev").textContent=(calcPrev!==null&&calcOp)?(calcPrev+" "+calcOpSymbol(calcOp)):"";
+}
+function calcDigit(d){
+ if(calcCurrent==="0"||calcReset){calcCurrent=d;calcReset=false;}
+ else if(calcCurrent.replace("-","").length<12){calcCurrent+=d;}
+ calcUpdateDisplay();
+}
+function calcDot(){
+ if(calcReset){calcCurrent="0.";calcReset=false;}
+ else if(!calcCurrent.includes(".")){calcCurrent+=".";}
+ calcUpdateDisplay();
+}
+function calcOperator(op){
+ if(calcOp!==null&&!calcReset)calcEquals();
+ calcPrev=calcCurrent;
+ calcOp=op;
+ calcReset=true;
+ calcUpdateDisplay();
+}
+function calcEquals(){
+ if(calcOp===null||calcPrev===null)return;
+ const a=parseFloat(calcPrev),b=parseFloat(calcCurrent);
+ let res=0;
+ if(calcOp==="+")res=a+b;
+ else if(calcOp==="-")res=a-b;
+ else if(calcOp==="*")res=a*b;
+ else if(calcOp==="/")res=(b===0)?NaN:a/b;
+ calcCurrent=isNaN(res)?"Error":String(Math.round(res*1e8)/1e8);
+ calcPrev=null;calcOp=null;calcReset=true;
+ calcUpdateDisplay();
+}
+function calcClear(){calcCurrent="0";calcPrev=null;calcOp=null;calcReset=false;calcUpdateDisplay();}
+function calcBackspace(){
+ if(calcReset)return;
+ calcCurrent=calcCurrent.length>1?calcCurrent.slice(0,-1):"0";
+ calcUpdateDisplay();
+}
+function calcPercent(){
+ calcCurrent=String(parseFloat(calcCurrent)/100);
+ calcUpdateDisplay();
+}
+function goCalc(){calcClear();document.getElementById("headerTitle").textContent="Kalkulator";document.getElementById("headerSub").textContent="Tambah, kurang, kali, bagi";showView("calcView");}
+
+document.getElementById("infoWA").href=WHATSAPP_CHANNEL;
+goHome();
+</script>
+</body>
+</html>
+
+</body></html>
